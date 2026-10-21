@@ -1,0 +1,88 @@
+name: noor_e_amal
+description: "Ibadah Tracker /عبادت ٹریکر — a premium cross-platform Islamic daily life tracker."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # ---------------------------------------------------------------------
+  # State management (Riverpod - no codegen, plain Notifier/FutureProvider)
+  # ---------------------------------------------------------------------
+  flutter_riverpod: ^3.4.3
+
+  # ---------------------------------------------------------------------
+  # Local persistence: Drift (compile-safe SQLite) on every platform.
+  # ---------------------------------------------------------------------
+  drift: ^2.35.2
+  sqlite3: 3.5.2 # 3.6+ pulls record_use/meta>1.18 which Flutter 3.44 pins
+  sqlite3_flutter_libs: ^0.5.41
+  sqflite_common_ffi: ^2.4.4
+  path_provider: ^2.1.6
+  path: ^1.9.1
+
+  # ---------------------------------------------------------------------
+  # UI: charts, animation and offline (bundled) fonts
+  # ---------------------------------------------------------------------
+  fl_chart: ^1.2.0
+  flutter_animate: ^4.5.2
+  google_fonts: ^8.2.1 # 9.x needs Dart ^3.13 (Flutter 3.45+) # configured for OFFLINE use (bundled TTFs)
+
+  # ---------------------------------------------------------------------
+  # Dates & numbers: Gregorian formatting + Hijri (Islamic) calendar
+  # ---------------------------------------------------------------------
+  intl: 0.20.2 # pinned by flutter_localizations
+  hijri: ^3.0.1
+
+  # Prayer times (adhan) — pure Dart, computed from the saved location
+  adhan: ^2.0.0+1
+
+  # Lightweight key/value prefs (splash seen, cached UI flags)
+  shared_preferences: ^2.5.6
+
+  # Keep the screen awake during long tasbeeh/azkar counting sessions
+  wakelock_plus: ^1.3.2
+  crypto: ^3.0.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  drift_dev: ^2.35.1
+  # Pinned: 2.17.0 is yanked and 2.17.1 requires build 5.x which drift_dev
+  # does not support yet. 2.16.2 (build 4.x) is the newest usable release.
+  build_runner: 2.15.1 # 2.15.2+ requires analyzer>=13.3 -> meta>=1.18.3, pinned 1.18.0 by Flutter 3.44
+
+flutter:
+  uses-material-design: true
+
+  # Enables `flutter gen-l10n` (ARB -> AppLocalizations)
+  generate: true
+
+  # ---------------------------------------------------------------------
+  # Fonts (fully offline - no runtime downloads)
+  #   NooriNastaleeq : Urdu / Arabic (Jameel Noori Nastaleeq)
+  #   Tinos          : English (metric-compatible with Times New Roman)
+  # ---------------------------------------------------------------------
+  fonts:
+    - family: NooriNastaleeq
+      fonts:
+        - asset: assets/fonts/NooriNastaleeq-Regular.ttf
+    - family: Tinos
+      fonts:
+        - asset: assets/fonts/Tinos-Regular.ttf
+        - asset: assets/fonts/Tinos-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Tinos-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Tinos-BoldItalic.ttf
+          weight: 700
+          style: italic
