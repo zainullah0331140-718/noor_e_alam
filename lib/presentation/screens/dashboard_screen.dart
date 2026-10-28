@@ -48,7 +48,7 @@ class DashboardScreen extends ConsumerWidget {
           data: (data) => Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Donut card grid (Namaz + Nafl wired; others show placeholders).
+              // Donut card grid for every tracked module.
               GridView.count(
                 crossAxisCount: MediaQuery.sizeOf(context).width > 640 ? 4 : 2,
                 shrinkWrap: true,
@@ -90,10 +90,12 @@ class DashboardScreen extends ConsumerWidget {
                       ),
                       DonutSlice(
                         label: l10n.remaining,
-                        value: (data.prayers.total - data.prayers.done -
-                                data.prayers.missed)
-                            .clamp(0, data.prayers.total)
-                            .toDouble(),
+                        value:
+                            (data.prayers.total -
+                                    data.prayers.done -
+                                    data.prayers.missed)
+                                .clamp(0, data.prayers.total)
+                                .toDouble(),
                         color: Theme.of(context).colorScheme.outlineVariant,
                       ),
                     ],
@@ -113,10 +115,9 @@ class DashboardScreen extends ConsumerWidget {
                       ),
                       DonutSlice(
                         label: l10n.notDone,
-                        value: (data.nafl.total - data.nafl.done).clamp(
-                          0,
-                          data.nafl.total,
-                        ).toDouble(),
+                        value: (data.nafl.total - data.nafl.done)
+                            .clamp(0, data.nafl.total)
+                            .toDouble(),
                         color: Theme.of(context).colorScheme.outlineVariant,
                       ),
                     ],
@@ -139,10 +140,9 @@ class DashboardScreen extends ConsumerWidget {
                       ),
                       DonutSlice(
                         label: l10n.notDone,
-                        value: (data.tilawat.total - data.tilawat.done).clamp(
-                          0,
-                          data.tilawat.total,
-                        ).toDouble(),
+                        value: (data.tilawat.total - data.tilawat.done)
+                            .clamp(0, data.tilawat.total)
+                            .toDouble(),
                         color: Theme.of(context).colorScheme.outlineVariant,
                       ),
                     ],
@@ -165,10 +165,9 @@ class DashboardScreen extends ConsumerWidget {
                       ),
                       DonutSlice(
                         label: l10n.notDone,
-                        value: (data.azkar.total - data.azkar.done).clamp(
-                          0,
-                          data.azkar.total,
-                        ).toDouble(),
+                        value: (data.azkar.total - data.azkar.done)
+                            .clamp(0, data.azkar.total)
+                            .toDouble(),
                         color: Theme.of(context).colorScheme.outlineVariant,
                       ),
                     ],
@@ -191,10 +190,84 @@ class DashboardScreen extends ConsumerWidget {
                       ),
                       DonutSlice(
                         label: l10n.notDone,
-                        value: (data.khatam.total - data.khatam.done).clamp(
-                          0,
-                          data.khatam.total,
-                        ).toDouble(),
+                        value: (data.khatam.total - data.khatam.done)
+                            .clamp(0, data.khatam.total)
+                            .toDouble(),
+                        color: Theme.of(context).colorScheme.outlineVariant,
+                      ),
+                    ],
+                  ),
+                  DashboardDonutCard(
+                    title: l10n.statGheebatFree,
+                    icon: Icons.record_voice_over,
+                    accent: const Color(0xFF8D6E63),
+                    useEastern: useEastern,
+                    completion: data.gheebat.completion,
+                    detail: l10n.detailDays(
+                      data.gheebat.done,
+                      data.gheebat.total,
+                    ),
+                    slices: [
+                      DonutSlice(
+                        label: l10n.gheebatFree,
+                        value: data.gheebat.done.toDouble(),
+                        color: const Color(0xFF8D6E63),
+                      ),
+                      DonutSlice(
+                        label: l10n.gheebatSlipped,
+                        value: (data.gheebat.total - data.gheebat.done)
+                            .clamp(0, data.gheebat.total)
+                            .toDouble(),
+                        color: const Color(0xFFD9B75B),
+                      ),
+                    ],
+                  ),
+                  DashboardDonutCard(
+                    title: l10n.statMuraqaba,
+                    icon: Icons.spa,
+                    accent: const Color(0xFF00897B),
+                    useEastern: useEastern,
+                    completion: data.muraqaba.completion,
+                    detail: l10n.detailMinutes(
+                      data.muraqaba.done,
+                      data.muraqaba.total,
+                    ),
+                    slices: [
+                      DonutSlice(
+                        label: l10n.done,
+                        value: data.muraqaba.done.toDouble(),
+                        color: const Color(0xFF00897B),
+                      ),
+                      DonutSlice(
+                        label: l10n.notDone,
+                        value: (data.muraqaba.total - data.muraqaba.done)
+                            .clamp(0, data.muraqaba.total)
+                            .toDouble(),
+                        color: Theme.of(context).colorScheme.outlineVariant,
+                      ),
+                    ],
+                  ),
+                  DashboardDonutCard(
+                    title: l10n.statRamadan,
+                    icon: Icons.nightlight,
+                    accent: const Color(0xFF607D8B),
+                    useEastern: useEastern,
+                    completion: data.ramadan.completion,
+                    detail: l10n.detailCounts(
+                      data.ramadan.done,
+                      data.ramadan.total,
+                    ),
+                    slices: [
+                      DonutSlice(
+                        label: l10n.done,
+                        value: data.ramadan.done.toDouble(),
+                        color: const Color(0xFF607D8B),
+                      ),
+                      DonutSlice(
+                        label: l10n.notDone,
+                        value: (data.ramadan.total - data.ramadan.done)
+                            .clamp(0, data.ramadan.total)
+                            .toDouble(),
                         color: Theme.of(context).colorScheme.outlineVariant,
                       ),
                     ],
@@ -247,9 +320,9 @@ class _Greeting extends StatelessWidget {
       children: [
         Text(
           greeting,
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(
+            context,
+          ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 2),
         Text(

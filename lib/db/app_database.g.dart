@@ -5685,6 +5685,1270 @@ class TaskCompletionsCompanion extends UpdateCompanion<TaskCompletion> {
   }
 }
 
+class $RamadanSeasonsTable extends RamadanSeasons
+    with TableInfo<$RamadanSeasonsTable, RamadanSeason> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $RamadanSeasonsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _hijriYearMeta = const VerificationMeta(
+    'hijriYear',
+  );
+  @override
+  late final GeneratedColumn<int> hijriYear = GeneratedColumn<int>(
+    'hijri_year',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _startDateMeta = const VerificationMeta(
+    'startDate',
+  );
+  @override
+  late final GeneratedColumn<String> startDate = GeneratedColumn<String>(
+    'start_date',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _sehriTimeMeta = const VerificationMeta(
+    'sehriTime',
+  );
+  @override
+  late final GeneratedColumn<String> sehriTime = GeneratedColumn<String>(
+    'sehri_time',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _iftarTimeMeta = const VerificationMeta(
+    'iftarTime',
+  );
+  @override
+  late final GeneratedColumn<String> iftarTime = GeneratedColumn<String>(
+    'iftar_time',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _zakatAmountMeta = const VerificationMeta(
+    'zakatAmount',
+  );
+  @override
+  late final GeneratedColumn<int> zakatAmount = GeneratedColumn<int>(
+    'zakat_amount',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _sadaqahAmountMeta = const VerificationMeta(
+    'sadaqahAmount',
+  );
+  @override
+  late final GeneratedColumn<int> sadaqahAmount = GeneratedColumn<int>(
+    'sadaqah_amount',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _itikafDoneMeta = const VerificationMeta(
+    'itikafDone',
+  );
+  @override
+  late final GeneratedColumn<bool> itikafDone = GeneratedColumn<bool>(
+    'itikaf_done',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("itikaf_done" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _laylatulQadrNoteMeta = const VerificationMeta(
+    'laylatulQadrNote',
+  );
+  @override
+  late final GeneratedColumn<String> laylatulQadrNote = GeneratedColumn<String>(
+    'laylatul_qadr_note',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    hijriYear,
+    startDate,
+    sehriTime,
+    iftarTime,
+    zakatAmount,
+    sadaqahAmount,
+    itikafDone,
+    laylatulQadrNote,
+    updatedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'ramadan_seasons';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<RamadanSeason> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('hijri_year')) {
+      context.handle(
+        _hijriYearMeta,
+        hijriYear.isAcceptableOrUnknown(data['hijri_year']!, _hijriYearMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_hijriYearMeta);
+    }
+    if (data.containsKey('start_date')) {
+      context.handle(
+        _startDateMeta,
+        startDate.isAcceptableOrUnknown(data['start_date']!, _startDateMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_startDateMeta);
+    }
+    if (data.containsKey('sehri_time')) {
+      context.handle(
+        _sehriTimeMeta,
+        sehriTime.isAcceptableOrUnknown(data['sehri_time']!, _sehriTimeMeta),
+      );
+    }
+    if (data.containsKey('iftar_time')) {
+      context.handle(
+        _iftarTimeMeta,
+        iftarTime.isAcceptableOrUnknown(data['iftar_time']!, _iftarTimeMeta),
+      );
+    }
+    if (data.containsKey('zakat_amount')) {
+      context.handle(
+        _zakatAmountMeta,
+        zakatAmount.isAcceptableOrUnknown(
+          data['zakat_amount']!,
+          _zakatAmountMeta,
+        ),
+      );
+    }
+    if (data.containsKey('sadaqah_amount')) {
+      context.handle(
+        _sadaqahAmountMeta,
+        sadaqahAmount.isAcceptableOrUnknown(
+          data['sadaqah_amount']!,
+          _sadaqahAmountMeta,
+        ),
+      );
+    }
+    if (data.containsKey('itikaf_done')) {
+      context.handle(
+        _itikafDoneMeta,
+        itikafDone.isAcceptableOrUnknown(data['itikaf_done']!, _itikafDoneMeta),
+      );
+    }
+    if (data.containsKey('laylatul_qadr_note')) {
+      context.handle(
+        _laylatulQadrNoteMeta,
+        laylatulQadrNote.isAcceptableOrUnknown(
+          data['laylatul_qadr_note']!,
+          _laylatulQadrNoteMeta,
+        ),
+      );
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  RamadanSeason map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return RamadanSeason(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      hijriYear: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}hijri_year'],
+      )!,
+      startDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}start_date'],
+      )!,
+      sehriTime: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}sehri_time'],
+      ),
+      iftarTime: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}iftar_time'],
+      ),
+      zakatAmount: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}zakat_amount'],
+      )!,
+      sadaqahAmount: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}sadaqah_amount'],
+      )!,
+      itikafDone: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}itikaf_done'],
+      )!,
+      laylatulQadrNote: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}laylatul_qadr_note'],
+      ),
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+    );
+  }
+
+  @override
+  $RamadanSeasonsTable createAlias(String alias) {
+    return $RamadanSeasonsTable(attachedDatabase, alias);
+  }
+}
+
+class RamadanSeason extends DataClass implements Insertable<RamadanSeason> {
+  final int id;
+
+  /// Islamic (Hijri) year the Ramadan belongs to (e.g. 1447).
+  final int hijriYear;
+
+  /// `yyyy-MM-dd` the first fast is expected on (best effort).
+  final String startDate;
+
+  /// User-provided Sehri/Iftar times as `HH:mm` (optional overrides).
+  final String? sehriTime;
+  final String? iftarTime;
+
+  /// Yearly Zakat / Sadaqah totals logged for this Ramadan.
+  final int zakatAmount;
+  final int sadaqahAmount;
+
+  /// Whether the user kept Itikaf this Ramadan.
+  final bool itikafDone;
+
+  /// Night(s) the user observed as Laylatul Qadr (free text, e.g. "27").
+  final String? laylatulQadrNote;
+  final DateTime updatedAt;
+  const RamadanSeason({
+    required this.id,
+    required this.hijriYear,
+    required this.startDate,
+    this.sehriTime,
+    this.iftarTime,
+    required this.zakatAmount,
+    required this.sadaqahAmount,
+    required this.itikafDone,
+    this.laylatulQadrNote,
+    required this.updatedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['hijri_year'] = Variable<int>(hijriYear);
+    map['start_date'] = Variable<String>(startDate);
+    if (!nullToAbsent || sehriTime != null) {
+      map['sehri_time'] = Variable<String>(sehriTime);
+    }
+    if (!nullToAbsent || iftarTime != null) {
+      map['iftar_time'] = Variable<String>(iftarTime);
+    }
+    map['zakat_amount'] = Variable<int>(zakatAmount);
+    map['sadaqah_amount'] = Variable<int>(sadaqahAmount);
+    map['itikaf_done'] = Variable<bool>(itikafDone);
+    if (!nullToAbsent || laylatulQadrNote != null) {
+      map['laylatul_qadr_note'] = Variable<String>(laylatulQadrNote);
+    }
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    return map;
+  }
+
+  RamadanSeasonsCompanion toCompanion(bool nullToAbsent) {
+    return RamadanSeasonsCompanion(
+      id: Value(id),
+      hijriYear: Value(hijriYear),
+      startDate: Value(startDate),
+      sehriTime: sehriTime == null && nullToAbsent
+          ? const Value.absent()
+          : Value(sehriTime),
+      iftarTime: iftarTime == null && nullToAbsent
+          ? const Value.absent()
+          : Value(iftarTime),
+      zakatAmount: Value(zakatAmount),
+      sadaqahAmount: Value(sadaqahAmount),
+      itikafDone: Value(itikafDone),
+      laylatulQadrNote: laylatulQadrNote == null && nullToAbsent
+          ? const Value.absent()
+          : Value(laylatulQadrNote),
+      updatedAt: Value(updatedAt),
+    );
+  }
+
+  factory RamadanSeason.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return RamadanSeason(
+      id: serializer.fromJson<int>(json['id']),
+      hijriYear: serializer.fromJson<int>(json['hijriYear']),
+      startDate: serializer.fromJson<String>(json['startDate']),
+      sehriTime: serializer.fromJson<String?>(json['sehriTime']),
+      iftarTime: serializer.fromJson<String?>(json['iftarTime']),
+      zakatAmount: serializer.fromJson<int>(json['zakatAmount']),
+      sadaqahAmount: serializer.fromJson<int>(json['sadaqahAmount']),
+      itikafDone: serializer.fromJson<bool>(json['itikafDone']),
+      laylatulQadrNote: serializer.fromJson<String?>(json['laylatulQadrNote']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'hijriYear': serializer.toJson<int>(hijriYear),
+      'startDate': serializer.toJson<String>(startDate),
+      'sehriTime': serializer.toJson<String?>(sehriTime),
+      'iftarTime': serializer.toJson<String?>(iftarTime),
+      'zakatAmount': serializer.toJson<int>(zakatAmount),
+      'sadaqahAmount': serializer.toJson<int>(sadaqahAmount),
+      'itikafDone': serializer.toJson<bool>(itikafDone),
+      'laylatulQadrNote': serializer.toJson<String?>(laylatulQadrNote),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+    };
+  }
+
+  RamadanSeason copyWith({
+    int? id,
+    int? hijriYear,
+    String? startDate,
+    Value<String?> sehriTime = const Value.absent(),
+    Value<String?> iftarTime = const Value.absent(),
+    int? zakatAmount,
+    int? sadaqahAmount,
+    bool? itikafDone,
+    Value<String?> laylatulQadrNote = const Value.absent(),
+    DateTime? updatedAt,
+  }) => RamadanSeason(
+    id: id ?? this.id,
+    hijriYear: hijriYear ?? this.hijriYear,
+    startDate: startDate ?? this.startDate,
+    sehriTime: sehriTime.present ? sehriTime.value : this.sehriTime,
+    iftarTime: iftarTime.present ? iftarTime.value : this.iftarTime,
+    zakatAmount: zakatAmount ?? this.zakatAmount,
+    sadaqahAmount: sadaqahAmount ?? this.sadaqahAmount,
+    itikafDone: itikafDone ?? this.itikafDone,
+    laylatulQadrNote: laylatulQadrNote.present
+        ? laylatulQadrNote.value
+        : this.laylatulQadrNote,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
+  RamadanSeason copyWithCompanion(RamadanSeasonsCompanion data) {
+    return RamadanSeason(
+      id: data.id.present ? data.id.value : this.id,
+      hijriYear: data.hijriYear.present ? data.hijriYear.value : this.hijriYear,
+      startDate: data.startDate.present ? data.startDate.value : this.startDate,
+      sehriTime: data.sehriTime.present ? data.sehriTime.value : this.sehriTime,
+      iftarTime: data.iftarTime.present ? data.iftarTime.value : this.iftarTime,
+      zakatAmount: data.zakatAmount.present
+          ? data.zakatAmount.value
+          : this.zakatAmount,
+      sadaqahAmount: data.sadaqahAmount.present
+          ? data.sadaqahAmount.value
+          : this.sadaqahAmount,
+      itikafDone: data.itikafDone.present
+          ? data.itikafDone.value
+          : this.itikafDone,
+      laylatulQadrNote: data.laylatulQadrNote.present
+          ? data.laylatulQadrNote.value
+          : this.laylatulQadrNote,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('RamadanSeason(')
+          ..write('id: $id, ')
+          ..write('hijriYear: $hijriYear, ')
+          ..write('startDate: $startDate, ')
+          ..write('sehriTime: $sehriTime, ')
+          ..write('iftarTime: $iftarTime, ')
+          ..write('zakatAmount: $zakatAmount, ')
+          ..write('sadaqahAmount: $sadaqahAmount, ')
+          ..write('itikafDone: $itikafDone, ')
+          ..write('laylatulQadrNote: $laylatulQadrNote, ')
+          ..write('updatedAt: $updatedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    hijriYear,
+    startDate,
+    sehriTime,
+    iftarTime,
+    zakatAmount,
+    sadaqahAmount,
+    itikafDone,
+    laylatulQadrNote,
+    updatedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is RamadanSeason &&
+          other.id == this.id &&
+          other.hijriYear == this.hijriYear &&
+          other.startDate == this.startDate &&
+          other.sehriTime == this.sehriTime &&
+          other.iftarTime == this.iftarTime &&
+          other.zakatAmount == this.zakatAmount &&
+          other.sadaqahAmount == this.sadaqahAmount &&
+          other.itikafDone == this.itikafDone &&
+          other.laylatulQadrNote == this.laylatulQadrNote &&
+          other.updatedAt == this.updatedAt);
+}
+
+class RamadanSeasonsCompanion extends UpdateCompanion<RamadanSeason> {
+  final Value<int> id;
+  final Value<int> hijriYear;
+  final Value<String> startDate;
+  final Value<String?> sehriTime;
+  final Value<String?> iftarTime;
+  final Value<int> zakatAmount;
+  final Value<int> sadaqahAmount;
+  final Value<bool> itikafDone;
+  final Value<String?> laylatulQadrNote;
+  final Value<DateTime> updatedAt;
+  const RamadanSeasonsCompanion({
+    this.id = const Value.absent(),
+    this.hijriYear = const Value.absent(),
+    this.startDate = const Value.absent(),
+    this.sehriTime = const Value.absent(),
+    this.iftarTime = const Value.absent(),
+    this.zakatAmount = const Value.absent(),
+    this.sadaqahAmount = const Value.absent(),
+    this.itikafDone = const Value.absent(),
+    this.laylatulQadrNote = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+  });
+  RamadanSeasonsCompanion.insert({
+    this.id = const Value.absent(),
+    required int hijriYear,
+    required String startDate,
+    this.sehriTime = const Value.absent(),
+    this.iftarTime = const Value.absent(),
+    this.zakatAmount = const Value.absent(),
+    this.sadaqahAmount = const Value.absent(),
+    this.itikafDone = const Value.absent(),
+    this.laylatulQadrNote = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+  }) : hijriYear = Value(hijriYear),
+       startDate = Value(startDate);
+  static Insertable<RamadanSeason> custom({
+    Expression<int>? id,
+    Expression<int>? hijriYear,
+    Expression<String>? startDate,
+    Expression<String>? sehriTime,
+    Expression<String>? iftarTime,
+    Expression<int>? zakatAmount,
+    Expression<int>? sadaqahAmount,
+    Expression<bool>? itikafDone,
+    Expression<String>? laylatulQadrNote,
+    Expression<DateTime>? updatedAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (hijriYear != null) 'hijri_year': hijriYear,
+      if (startDate != null) 'start_date': startDate,
+      if (sehriTime != null) 'sehri_time': sehriTime,
+      if (iftarTime != null) 'iftar_time': iftarTime,
+      if (zakatAmount != null) 'zakat_amount': zakatAmount,
+      if (sadaqahAmount != null) 'sadaqah_amount': sadaqahAmount,
+      if (itikafDone != null) 'itikaf_done': itikafDone,
+      if (laylatulQadrNote != null) 'laylatul_qadr_note': laylatulQadrNote,
+      if (updatedAt != null) 'updated_at': updatedAt,
+    });
+  }
+
+  RamadanSeasonsCompanion copyWith({
+    Value<int>? id,
+    Value<int>? hijriYear,
+    Value<String>? startDate,
+    Value<String?>? sehriTime,
+    Value<String?>? iftarTime,
+    Value<int>? zakatAmount,
+    Value<int>? sadaqahAmount,
+    Value<bool>? itikafDone,
+    Value<String?>? laylatulQadrNote,
+    Value<DateTime>? updatedAt,
+  }) {
+    return RamadanSeasonsCompanion(
+      id: id ?? this.id,
+      hijriYear: hijriYear ?? this.hijriYear,
+      startDate: startDate ?? this.startDate,
+      sehriTime: sehriTime ?? this.sehriTime,
+      iftarTime: iftarTime ?? this.iftarTime,
+      zakatAmount: zakatAmount ?? this.zakatAmount,
+      sadaqahAmount: sadaqahAmount ?? this.sadaqahAmount,
+      itikafDone: itikafDone ?? this.itikafDone,
+      laylatulQadrNote: laylatulQadrNote ?? this.laylatulQadrNote,
+      updatedAt: updatedAt ?? this.updatedAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (hijriYear.present) {
+      map['hijri_year'] = Variable<int>(hijriYear.value);
+    }
+    if (startDate.present) {
+      map['start_date'] = Variable<String>(startDate.value);
+    }
+    if (sehriTime.present) {
+      map['sehri_time'] = Variable<String>(sehriTime.value);
+    }
+    if (iftarTime.present) {
+      map['iftar_time'] = Variable<String>(iftarTime.value);
+    }
+    if (zakatAmount.present) {
+      map['zakat_amount'] = Variable<int>(zakatAmount.value);
+    }
+    if (sadaqahAmount.present) {
+      map['sadaqah_amount'] = Variable<int>(sadaqahAmount.value);
+    }
+    if (itikafDone.present) {
+      map['itikaf_done'] = Variable<bool>(itikafDone.value);
+    }
+    if (laylatulQadrNote.present) {
+      map['laylatul_qadr_note'] = Variable<String>(laylatulQadrNote.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('RamadanSeasonsCompanion(')
+          ..write('id: $id, ')
+          ..write('hijriYear: $hijriYear, ')
+          ..write('startDate: $startDate, ')
+          ..write('sehriTime: $sehriTime, ')
+          ..write('iftarTime: $iftarTime, ')
+          ..write('zakatAmount: $zakatAmount, ')
+          ..write('sadaqahAmount: $sadaqahAmount, ')
+          ..write('itikafDone: $itikafDone, ')
+          ..write('laylatulQadrNote: $laylatulQadrNote, ')
+          ..write('updatedAt: $updatedAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $RamadanDaysTable extends RamadanDays
+    with TableInfo<$RamadanDaysTable, RamadanDay> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $RamadanDaysTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _seasonIdMeta = const VerificationMeta(
+    'seasonId',
+  );
+  @override
+  late final GeneratedColumn<int> seasonId = GeneratedColumn<int>(
+    'season_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES ramadan_seasons (id) ON DELETE CASCADE',
+    ),
+  );
+  static const VerificationMeta _dayNumberMeta = const VerificationMeta(
+    'dayNumber',
+  );
+  @override
+  late final GeneratedColumn<int> dayNumber = GeneratedColumn<int>(
+    'day_number',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dateMeta = const VerificationMeta('date');
+  @override
+  late final GeneratedColumn<String> date = GeneratedColumn<String>(
+    'date',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  late final GeneratedColumnWithTypeConverter<RozaStatus, int> status =
+      GeneratedColumn<int>(
+        'status',
+        aliasedName,
+        false,
+        type: DriftSqlType.int,
+        requiredDuringInsert: false,
+        defaultValue: const Constant(0),
+      ).withConverter<RozaStatus>($RamadanDaysTable.$converterstatus);
+  @override
+  late final GeneratedColumnWithTypeConverter<RozaExcuse, int> excuse =
+      GeneratedColumn<int>(
+        'excuse',
+        aliasedName,
+        false,
+        type: DriftSqlType.int,
+        requiredDuringInsert: false,
+        defaultValue: const Constant(0),
+      ).withConverter<RozaExcuse>($RamadanDaysTable.$converterexcuse);
+  static const VerificationMeta _taraweehMeta = const VerificationMeta(
+    'taraweeh',
+  );
+  @override
+  late final GeneratedColumn<bool> taraweeh = GeneratedColumn<bool>(
+    'taraweeh',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("taraweeh" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _tahajjudMeta = const VerificationMeta(
+    'tahajjud',
+  );
+  @override
+  late final GeneratedColumn<bool> tahajjud = GeneratedColumn<bool>(
+    'tahajjud',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("tahajjud" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _qazaMadeUpMeta = const VerificationMeta(
+    'qazaMadeUp',
+  );
+  @override
+  late final GeneratedColumn<bool> qazaMadeUp = GeneratedColumn<bool>(
+    'qaza_made_up',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("qaza_made_up" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _noteMeta = const VerificationMeta('note');
+  @override
+  late final GeneratedColumn<String> note = GeneratedColumn<String>(
+    'note',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    seasonId,
+    dayNumber,
+    date,
+    status,
+    excuse,
+    taraweeh,
+    tahajjud,
+    qazaMadeUp,
+    note,
+    updatedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'ramadan_days';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<RamadanDay> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('season_id')) {
+      context.handle(
+        _seasonIdMeta,
+        seasonId.isAcceptableOrUnknown(data['season_id']!, _seasonIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_seasonIdMeta);
+    }
+    if (data.containsKey('day_number')) {
+      context.handle(
+        _dayNumberMeta,
+        dayNumber.isAcceptableOrUnknown(data['day_number']!, _dayNumberMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_dayNumberMeta);
+    }
+    if (data.containsKey('date')) {
+      context.handle(
+        _dateMeta,
+        date.isAcceptableOrUnknown(data['date']!, _dateMeta),
+      );
+    }
+    if (data.containsKey('taraweeh')) {
+      context.handle(
+        _taraweehMeta,
+        taraweeh.isAcceptableOrUnknown(data['taraweeh']!, _taraweehMeta),
+      );
+    }
+    if (data.containsKey('tahajjud')) {
+      context.handle(
+        _tahajjudMeta,
+        tahajjud.isAcceptableOrUnknown(data['tahajjud']!, _tahajjudMeta),
+      );
+    }
+    if (data.containsKey('qaza_made_up')) {
+      context.handle(
+        _qazaMadeUpMeta,
+        qazaMadeUp.isAcceptableOrUnknown(
+          data['qaza_made_up']!,
+          _qazaMadeUpMeta,
+        ),
+      );
+    }
+    if (data.containsKey('note')) {
+      context.handle(
+        _noteMeta,
+        note.isAcceptableOrUnknown(data['note']!, _noteMeta),
+      );
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {seasonId, dayNumber};
+  @override
+  RamadanDay map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return RamadanDay(
+      seasonId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}season_id'],
+      )!,
+      dayNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}day_number'],
+      )!,
+      date: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}date'],
+      ),
+      status: $RamadanDaysTable.$converterstatus.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.int,
+          data['${effectivePrefix}status'],
+        )!,
+      ),
+      excuse: $RamadanDaysTable.$converterexcuse.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.int,
+          data['${effectivePrefix}excuse'],
+        )!,
+      ),
+      taraweeh: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}taraweeh'],
+      )!,
+      tahajjud: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}tahajjud'],
+      )!,
+      qazaMadeUp: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}qaza_made_up'],
+      )!,
+      note: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}note'],
+      ),
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+    );
+  }
+
+  @override
+  $RamadanDaysTable createAlias(String alias) {
+    return $RamadanDaysTable(attachedDatabase, alias);
+  }
+
+  static JsonTypeConverter2<RozaStatus, int, int> $converterstatus =
+      const EnumIndexConverter<RozaStatus>(RozaStatus.values);
+  static JsonTypeConverter2<RozaExcuse, int, int> $converterexcuse =
+      const EnumIndexConverter<RozaExcuse>(RozaExcuse.values);
+}
+
+class RamadanDay extends DataClass implements Insertable<RamadanDay> {
+  final int seasonId;
+
+  /// Day of Ramadan, 1..30.
+  final int dayNumber;
+
+  /// `yyyy-MM-dd` this Roza falls on, when known.
+  final String? date;
+  final RozaStatus status;
+  final RozaExcuse excuse;
+
+  /// Taraweeh prayed that night.
+  final bool taraweeh;
+
+  /// Tahajjud prayed that night.
+  final bool tahajjud;
+
+  /// Whether qaza was already made up for a missed fast.
+  final bool qazaMadeUp;
+
+  /// Optional private note.
+  final String? note;
+  final DateTime updatedAt;
+  const RamadanDay({
+    required this.seasonId,
+    required this.dayNumber,
+    this.date,
+    required this.status,
+    required this.excuse,
+    required this.taraweeh,
+    required this.tahajjud,
+    required this.qazaMadeUp,
+    this.note,
+    required this.updatedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['season_id'] = Variable<int>(seasonId);
+    map['day_number'] = Variable<int>(dayNumber);
+    if (!nullToAbsent || date != null) {
+      map['date'] = Variable<String>(date);
+    }
+    {
+      map['status'] = Variable<int>(
+        $RamadanDaysTable.$converterstatus.toSql(status),
+      );
+    }
+    {
+      map['excuse'] = Variable<int>(
+        $RamadanDaysTable.$converterexcuse.toSql(excuse),
+      );
+    }
+    map['taraweeh'] = Variable<bool>(taraweeh);
+    map['tahajjud'] = Variable<bool>(tahajjud);
+    map['qaza_made_up'] = Variable<bool>(qazaMadeUp);
+    if (!nullToAbsent || note != null) {
+      map['note'] = Variable<String>(note);
+    }
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    return map;
+  }
+
+  RamadanDaysCompanion toCompanion(bool nullToAbsent) {
+    return RamadanDaysCompanion(
+      seasonId: Value(seasonId),
+      dayNumber: Value(dayNumber),
+      date: date == null && nullToAbsent ? const Value.absent() : Value(date),
+      status: Value(status),
+      excuse: Value(excuse),
+      taraweeh: Value(taraweeh),
+      tahajjud: Value(tahajjud),
+      qazaMadeUp: Value(qazaMadeUp),
+      note: note == null && nullToAbsent ? const Value.absent() : Value(note),
+      updatedAt: Value(updatedAt),
+    );
+  }
+
+  factory RamadanDay.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return RamadanDay(
+      seasonId: serializer.fromJson<int>(json['seasonId']),
+      dayNumber: serializer.fromJson<int>(json['dayNumber']),
+      date: serializer.fromJson<String?>(json['date']),
+      status: $RamadanDaysTable.$converterstatus.fromJson(
+        serializer.fromJson<int>(json['status']),
+      ),
+      excuse: $RamadanDaysTable.$converterexcuse.fromJson(
+        serializer.fromJson<int>(json['excuse']),
+      ),
+      taraweeh: serializer.fromJson<bool>(json['taraweeh']),
+      tahajjud: serializer.fromJson<bool>(json['tahajjud']),
+      qazaMadeUp: serializer.fromJson<bool>(json['qazaMadeUp']),
+      note: serializer.fromJson<String?>(json['note']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'seasonId': serializer.toJson<int>(seasonId),
+      'dayNumber': serializer.toJson<int>(dayNumber),
+      'date': serializer.toJson<String?>(date),
+      'status': serializer.toJson<int>(
+        $RamadanDaysTable.$converterstatus.toJson(status),
+      ),
+      'excuse': serializer.toJson<int>(
+        $RamadanDaysTable.$converterexcuse.toJson(excuse),
+      ),
+      'taraweeh': serializer.toJson<bool>(taraweeh),
+      'tahajjud': serializer.toJson<bool>(tahajjud),
+      'qazaMadeUp': serializer.toJson<bool>(qazaMadeUp),
+      'note': serializer.toJson<String?>(note),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+    };
+  }
+
+  RamadanDay copyWith({
+    int? seasonId,
+    int? dayNumber,
+    Value<String?> date = const Value.absent(),
+    RozaStatus? status,
+    RozaExcuse? excuse,
+    bool? taraweeh,
+    bool? tahajjud,
+    bool? qazaMadeUp,
+    Value<String?> note = const Value.absent(),
+    DateTime? updatedAt,
+  }) => RamadanDay(
+    seasonId: seasonId ?? this.seasonId,
+    dayNumber: dayNumber ?? this.dayNumber,
+    date: date.present ? date.value : this.date,
+    status: status ?? this.status,
+    excuse: excuse ?? this.excuse,
+    taraweeh: taraweeh ?? this.taraweeh,
+    tahajjud: tahajjud ?? this.tahajjud,
+    qazaMadeUp: qazaMadeUp ?? this.qazaMadeUp,
+    note: note.present ? note.value : this.note,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
+  RamadanDay copyWithCompanion(RamadanDaysCompanion data) {
+    return RamadanDay(
+      seasonId: data.seasonId.present ? data.seasonId.value : this.seasonId,
+      dayNumber: data.dayNumber.present ? data.dayNumber.value : this.dayNumber,
+      date: data.date.present ? data.date.value : this.date,
+      status: data.status.present ? data.status.value : this.status,
+      excuse: data.excuse.present ? data.excuse.value : this.excuse,
+      taraweeh: data.taraweeh.present ? data.taraweeh.value : this.taraweeh,
+      tahajjud: data.tahajjud.present ? data.tahajjud.value : this.tahajjud,
+      qazaMadeUp: data.qazaMadeUp.present
+          ? data.qazaMadeUp.value
+          : this.qazaMadeUp,
+      note: data.note.present ? data.note.value : this.note,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('RamadanDay(')
+          ..write('seasonId: $seasonId, ')
+          ..write('dayNumber: $dayNumber, ')
+          ..write('date: $date, ')
+          ..write('status: $status, ')
+          ..write('excuse: $excuse, ')
+          ..write('taraweeh: $taraweeh, ')
+          ..write('tahajjud: $tahajjud, ')
+          ..write('qazaMadeUp: $qazaMadeUp, ')
+          ..write('note: $note, ')
+          ..write('updatedAt: $updatedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    seasonId,
+    dayNumber,
+    date,
+    status,
+    excuse,
+    taraweeh,
+    tahajjud,
+    qazaMadeUp,
+    note,
+    updatedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is RamadanDay &&
+          other.seasonId == this.seasonId &&
+          other.dayNumber == this.dayNumber &&
+          other.date == this.date &&
+          other.status == this.status &&
+          other.excuse == this.excuse &&
+          other.taraweeh == this.taraweeh &&
+          other.tahajjud == this.tahajjud &&
+          other.qazaMadeUp == this.qazaMadeUp &&
+          other.note == this.note &&
+          other.updatedAt == this.updatedAt);
+}
+
+class RamadanDaysCompanion extends UpdateCompanion<RamadanDay> {
+  final Value<int> seasonId;
+  final Value<int> dayNumber;
+  final Value<String?> date;
+  final Value<RozaStatus> status;
+  final Value<RozaExcuse> excuse;
+  final Value<bool> taraweeh;
+  final Value<bool> tahajjud;
+  final Value<bool> qazaMadeUp;
+  final Value<String?> note;
+  final Value<DateTime> updatedAt;
+  final Value<int> rowid;
+  const RamadanDaysCompanion({
+    this.seasonId = const Value.absent(),
+    this.dayNumber = const Value.absent(),
+    this.date = const Value.absent(),
+    this.status = const Value.absent(),
+    this.excuse = const Value.absent(),
+    this.taraweeh = const Value.absent(),
+    this.tahajjud = const Value.absent(),
+    this.qazaMadeUp = const Value.absent(),
+    this.note = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  RamadanDaysCompanion.insert({
+    required int seasonId,
+    required int dayNumber,
+    this.date = const Value.absent(),
+    this.status = const Value.absent(),
+    this.excuse = const Value.absent(),
+    this.taraweeh = const Value.absent(),
+    this.tahajjud = const Value.absent(),
+    this.qazaMadeUp = const Value.absent(),
+    this.note = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : seasonId = Value(seasonId),
+       dayNumber = Value(dayNumber);
+  static Insertable<RamadanDay> custom({
+    Expression<int>? seasonId,
+    Expression<int>? dayNumber,
+    Expression<String>? date,
+    Expression<int>? status,
+    Expression<int>? excuse,
+    Expression<bool>? taraweeh,
+    Expression<bool>? tahajjud,
+    Expression<bool>? qazaMadeUp,
+    Expression<String>? note,
+    Expression<DateTime>? updatedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (seasonId != null) 'season_id': seasonId,
+      if (dayNumber != null) 'day_number': dayNumber,
+      if (date != null) 'date': date,
+      if (status != null) 'status': status,
+      if (excuse != null) 'excuse': excuse,
+      if (taraweeh != null) 'taraweeh': taraweeh,
+      if (tahajjud != null) 'tahajjud': tahajjud,
+      if (qazaMadeUp != null) 'qaza_made_up': qazaMadeUp,
+      if (note != null) 'note': note,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  RamadanDaysCompanion copyWith({
+    Value<int>? seasonId,
+    Value<int>? dayNumber,
+    Value<String?>? date,
+    Value<RozaStatus>? status,
+    Value<RozaExcuse>? excuse,
+    Value<bool>? taraweeh,
+    Value<bool>? tahajjud,
+    Value<bool>? qazaMadeUp,
+    Value<String?>? note,
+    Value<DateTime>? updatedAt,
+    Value<int>? rowid,
+  }) {
+    return RamadanDaysCompanion(
+      seasonId: seasonId ?? this.seasonId,
+      dayNumber: dayNumber ?? this.dayNumber,
+      date: date ?? this.date,
+      status: status ?? this.status,
+      excuse: excuse ?? this.excuse,
+      taraweeh: taraweeh ?? this.taraweeh,
+      tahajjud: tahajjud ?? this.tahajjud,
+      qazaMadeUp: qazaMadeUp ?? this.qazaMadeUp,
+      note: note ?? this.note,
+      updatedAt: updatedAt ?? this.updatedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (seasonId.present) {
+      map['season_id'] = Variable<int>(seasonId.value);
+    }
+    if (dayNumber.present) {
+      map['day_number'] = Variable<int>(dayNumber.value);
+    }
+    if (date.present) {
+      map['date'] = Variable<String>(date.value);
+    }
+    if (status.present) {
+      map['status'] = Variable<int>(
+        $RamadanDaysTable.$converterstatus.toSql(status.value),
+      );
+    }
+    if (excuse.present) {
+      map['excuse'] = Variable<int>(
+        $RamadanDaysTable.$converterexcuse.toSql(excuse.value),
+      );
+    }
+    if (taraweeh.present) {
+      map['taraweeh'] = Variable<bool>(taraweeh.value);
+    }
+    if (tahajjud.present) {
+      map['tahajjud'] = Variable<bool>(tahajjud.value);
+    }
+    if (qazaMadeUp.present) {
+      map['qaza_made_up'] = Variable<bool>(qazaMadeUp.value);
+    }
+    if (note.present) {
+      map['note'] = Variable<String>(note.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('RamadanDaysCompanion(')
+          ..write('seasonId: $seasonId, ')
+          ..write('dayNumber: $dayNumber, ')
+          ..write('date: $date, ')
+          ..write('status: $status, ')
+          ..write('excuse: $excuse, ')
+          ..write('taraweeh: $taraweeh, ')
+          ..write('tahajjud: $tahajjud, ')
+          ..write('qazaMadeUp: $qazaMadeUp, ')
+          ..write('note: $note, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -5707,6 +6971,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $TaskCompletionsTable taskCompletions = $TaskCompletionsTable(
     this,
   );
+  late final $RamadanSeasonsTable ramadanSeasons = $RamadanSeasonsTable(this);
+  late final $RamadanDaysTable ramadanDays = $RamadanDaysTable(this);
   late final NamazDao namazDao = NamazDao(this as AppDatabase);
   late final NaflDao naflDao = NaflDao(this as AppDatabase);
   late final QazaDao qazaDao = QazaDao(this as AppDatabase);
@@ -5716,6 +6982,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final GheebatDao gheebatDao = GheebatDao(this as AppDatabase);
   late final MuraqabaDao muraqabaDao = MuraqabaDao(this as AppDatabase);
   late final TimetableDao timetableDao = TimetableDao(this as AppDatabase);
+  late final RamadanDao ramadanDao = RamadanDao(this as AppDatabase);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -5734,6 +7001,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     muraqabaSessions,
     tasks,
     taskCompletions,
+    ramadanSeasons,
+    ramadanDays,
   ];
   @override
   StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules([
@@ -5750,6 +7019,13 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         limitUpdateKind: UpdateKind.delete,
       ),
       result: [TableUpdate('task_completions', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'ramadan_seasons',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('ramadan_days', kind: UpdateKind.delete)],
     ),
   ]);
 }
@@ -9265,6 +10541,827 @@ typedef $$TaskCompletionsTableProcessedTableManager =
       TaskCompletion,
       PrefetchHooks Function({bool taskId})
     >;
+typedef $$RamadanSeasonsTableCreateCompanionBuilder =
+    RamadanSeasonsCompanion Function({
+      Value<int> id,
+      required int hijriYear,
+      required String startDate,
+      Value<String?> sehriTime,
+      Value<String?> iftarTime,
+      Value<int> zakatAmount,
+      Value<int> sadaqahAmount,
+      Value<bool> itikafDone,
+      Value<String?> laylatulQadrNote,
+      Value<DateTime> updatedAt,
+    });
+typedef $$RamadanSeasonsTableUpdateCompanionBuilder =
+    RamadanSeasonsCompanion Function({
+      Value<int> id,
+      Value<int> hijriYear,
+      Value<String> startDate,
+      Value<String?> sehriTime,
+      Value<String?> iftarTime,
+      Value<int> zakatAmount,
+      Value<int> sadaqahAmount,
+      Value<bool> itikafDone,
+      Value<String?> laylatulQadrNote,
+      Value<DateTime> updatedAt,
+    });
+
+final class $$RamadanSeasonsTableReferences
+    extends BaseReferences<_$AppDatabase, $RamadanSeasonsTable, RamadanSeason> {
+  $$RamadanSeasonsTableReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static MultiTypedResultKey<$RamadanDaysTable, List<RamadanDay>>
+  _ramadanDaysRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.ramadanDays,
+    aliasName: 'ramadan_seasons__id__ramadan_days__season_id',
+  );
+
+  $$RamadanDaysTableProcessedTableManager get ramadanDaysRefs {
+    final manager = $$RamadanDaysTableTableManager(
+      $_db,
+      $_db.ramadanDays,
+    ).filter((f) => f.seasonId.id.sqlEquals($_itemColumn<int>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(_ramadanDaysRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $$RamadanSeasonsTableFilterComposer
+    extends Composer<_$AppDatabase, $RamadanSeasonsTable> {
+  $$RamadanSeasonsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get hijriYear => $composableBuilder(
+    column: $table.hijriYear,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get startDate => $composableBuilder(
+    column: $table.startDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get sehriTime => $composableBuilder(
+    column: $table.sehriTime,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get iftarTime => $composableBuilder(
+    column: $table.iftarTime,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get zakatAmount => $composableBuilder(
+    column: $table.zakatAmount,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get sadaqahAmount => $composableBuilder(
+    column: $table.sadaqahAmount,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get itikafDone => $composableBuilder(
+    column: $table.itikafDone,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get laylatulQadrNote => $composableBuilder(
+    column: $table.laylatulQadrNote,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  Expression<bool> ramadanDaysRefs(
+    Expression<bool> Function($$RamadanDaysTableFilterComposer f) f,
+  ) {
+    final $$RamadanDaysTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.ramadanDays,
+      getReferencedColumn: (t) => t.seasonId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$RamadanDaysTableFilterComposer(
+            $db: $db,
+            $table: $db.ramadanDays,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $$RamadanSeasonsTableOrderingComposer
+    extends Composer<_$AppDatabase, $RamadanSeasonsTable> {
+  $$RamadanSeasonsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get hijriYear => $composableBuilder(
+    column: $table.hijriYear,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get startDate => $composableBuilder(
+    column: $table.startDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get sehriTime => $composableBuilder(
+    column: $table.sehriTime,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get iftarTime => $composableBuilder(
+    column: $table.iftarTime,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get zakatAmount => $composableBuilder(
+    column: $table.zakatAmount,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get sadaqahAmount => $composableBuilder(
+    column: $table.sadaqahAmount,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get itikafDone => $composableBuilder(
+    column: $table.itikafDone,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get laylatulQadrNote => $composableBuilder(
+    column: $table.laylatulQadrNote,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$RamadanSeasonsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $RamadanSeasonsTable> {
+  $$RamadanSeasonsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get hijriYear =>
+      $composableBuilder(column: $table.hijriYear, builder: (column) => column);
+
+  GeneratedColumn<String> get startDate =>
+      $composableBuilder(column: $table.startDate, builder: (column) => column);
+
+  GeneratedColumn<String> get sehriTime =>
+      $composableBuilder(column: $table.sehriTime, builder: (column) => column);
+
+  GeneratedColumn<String> get iftarTime =>
+      $composableBuilder(column: $table.iftarTime, builder: (column) => column);
+
+  GeneratedColumn<int> get zakatAmount => $composableBuilder(
+    column: $table.zakatAmount,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get sadaqahAmount => $composableBuilder(
+    column: $table.sadaqahAmount,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get itikafDone => $composableBuilder(
+    column: $table.itikafDone,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get laylatulQadrNote => $composableBuilder(
+    column: $table.laylatulQadrNote,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  Expression<T> ramadanDaysRefs<T extends Object>(
+    Expression<T> Function($$RamadanDaysTableAnnotationComposer a) f,
+  ) {
+    final $$RamadanDaysTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.ramadanDays,
+      getReferencedColumn: (t) => t.seasonId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$RamadanDaysTableAnnotationComposer(
+            $db: $db,
+            $table: $db.ramadanDays,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $$RamadanSeasonsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $RamadanSeasonsTable,
+          RamadanSeason,
+          $$RamadanSeasonsTableFilterComposer,
+          $$RamadanSeasonsTableOrderingComposer,
+          $$RamadanSeasonsTableAnnotationComposer,
+          $$RamadanSeasonsTableCreateCompanionBuilder,
+          $$RamadanSeasonsTableUpdateCompanionBuilder,
+          (RamadanSeason, $$RamadanSeasonsTableReferences),
+          RamadanSeason,
+          PrefetchHooks Function({bool ramadanDaysRefs})
+        > {
+  $$RamadanSeasonsTableTableManager(
+    _$AppDatabase db,
+    $RamadanSeasonsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$RamadanSeasonsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$RamadanSeasonsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$RamadanSeasonsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> hijriYear = const Value.absent(),
+                Value<String> startDate = const Value.absent(),
+                Value<String?> sehriTime = const Value.absent(),
+                Value<String?> iftarTime = const Value.absent(),
+                Value<int> zakatAmount = const Value.absent(),
+                Value<int> sadaqahAmount = const Value.absent(),
+                Value<bool> itikafDone = const Value.absent(),
+                Value<String?> laylatulQadrNote = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => RamadanSeasonsCompanion(
+                id: id,
+                hijriYear: hijriYear,
+                startDate: startDate,
+                sehriTime: sehriTime,
+                iftarTime: iftarTime,
+                zakatAmount: zakatAmount,
+                sadaqahAmount: sadaqahAmount,
+                itikafDone: itikafDone,
+                laylatulQadrNote: laylatulQadrNote,
+                updatedAt: updatedAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int hijriYear,
+                required String startDate,
+                Value<String?> sehriTime = const Value.absent(),
+                Value<String?> iftarTime = const Value.absent(),
+                Value<int> zakatAmount = const Value.absent(),
+                Value<int> sadaqahAmount = const Value.absent(),
+                Value<bool> itikafDone = const Value.absent(),
+                Value<String?> laylatulQadrNote = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => RamadanSeasonsCompanion.insert(
+                id: id,
+                hijriYear: hijriYear,
+                startDate: startDate,
+                sehriTime: sehriTime,
+                iftarTime: iftarTime,
+                zakatAmount: zakatAmount,
+                sadaqahAmount: sadaqahAmount,
+                itikafDone: itikafDone,
+                laylatulQadrNote: laylatulQadrNote,
+                updatedAt: updatedAt,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$RamadanSeasonsTable, RamadanSeason>(table),
+                  $$RamadanSeasonsTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({ramadanDaysRefs = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [if (ramadanDaysRefs) db.ramadanDays],
+              addJoins: null,
+              getPrefetchedDataCallback: (items) async {
+                return [
+                  if (ramadanDaysRefs)
+                    await $_getPrefetchedData<
+                      RamadanSeason,
+                      $RamadanSeasonsTable,
+                      RamadanDay
+                    >(
+                      currentTable: table,
+                      referencedTable: $$RamadanSeasonsTableReferences
+                          ._ramadanDaysRefsTable(db),
+                      managerFromTypedResult: (p0) =>
+                          $$RamadanSeasonsTableReferences(
+                            db,
+                            table,
+                            p0,
+                          ).ramadanDaysRefs,
+                      referencedItemsForCurrentItem: (item, referencedItems) =>
+                          referencedItems.where((e) => e.seasonId == item.id),
+                      typedResults: items,
+                    ),
+                ];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$RamadanSeasonsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $RamadanSeasonsTable,
+      RamadanSeason,
+      $$RamadanSeasonsTableFilterComposer,
+      $$RamadanSeasonsTableOrderingComposer,
+      $$RamadanSeasonsTableAnnotationComposer,
+      $$RamadanSeasonsTableCreateCompanionBuilder,
+      $$RamadanSeasonsTableUpdateCompanionBuilder,
+      (RamadanSeason, $$RamadanSeasonsTableReferences),
+      RamadanSeason,
+      PrefetchHooks Function({bool ramadanDaysRefs})
+    >;
+typedef $$RamadanDaysTableCreateCompanionBuilder =
+    RamadanDaysCompanion Function({
+      required int seasonId,
+      required int dayNumber,
+      Value<String?> date,
+      Value<RozaStatus> status,
+      Value<RozaExcuse> excuse,
+      Value<bool> taraweeh,
+      Value<bool> tahajjud,
+      Value<bool> qazaMadeUp,
+      Value<String?> note,
+      Value<DateTime> updatedAt,
+      Value<int> rowid,
+    });
+typedef $$RamadanDaysTableUpdateCompanionBuilder =
+    RamadanDaysCompanion Function({
+      Value<int> seasonId,
+      Value<int> dayNumber,
+      Value<String?> date,
+      Value<RozaStatus> status,
+      Value<RozaExcuse> excuse,
+      Value<bool> taraweeh,
+      Value<bool> tahajjud,
+      Value<bool> qazaMadeUp,
+      Value<String?> note,
+      Value<DateTime> updatedAt,
+      Value<int> rowid,
+    });
+
+final class $$RamadanDaysTableReferences
+    extends BaseReferences<_$AppDatabase, $RamadanDaysTable, RamadanDay> {
+  $$RamadanDaysTableReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static $RamadanSeasonsTable _seasonIdTable(_$AppDatabase db) => db
+      .ramadanSeasons
+      .createAlias('ramadan_days__season_id__ramadan_seasons__id');
+
+  $$RamadanSeasonsTableProcessedTableManager get seasonId {
+    final $_column = $_itemColumn<int>('season_id')!;
+
+    final manager = $$RamadanSeasonsTableTableManager(
+      $_db,
+      $_db.ramadanSeasons,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_seasonIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $$RamadanDaysTableFilterComposer
+    extends Composer<_$AppDatabase, $RamadanDaysTable> {
+  $$RamadanDaysTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get dayNumber => $composableBuilder(
+    column: $table.dayNumber,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get date => $composableBuilder(
+    column: $table.date,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnWithTypeConverterFilters<RozaStatus, RozaStatus, int> get status =>
+      $composableBuilder(
+        column: $table.status,
+        builder: (column) => ColumnWithTypeConverterFilters(column),
+      );
+
+  ColumnWithTypeConverterFilters<RozaExcuse, RozaExcuse, int> get excuse =>
+      $composableBuilder(
+        column: $table.excuse,
+        builder: (column) => ColumnWithTypeConverterFilters(column),
+      );
+
+  ColumnFilters<bool> get taraweeh => $composableBuilder(
+    column: $table.taraweeh,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get tahajjud => $composableBuilder(
+    column: $table.tahajjud,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get qazaMadeUp => $composableBuilder(
+    column: $table.qazaMadeUp,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get note => $composableBuilder(
+    column: $table.note,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $$RamadanSeasonsTableFilterComposer get seasonId {
+    final $$RamadanSeasonsTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.seasonId,
+      referencedTable: $db.ramadanSeasons,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$RamadanSeasonsTableFilterComposer(
+            $db: $db,
+            $table: $db.ramadanSeasons,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$RamadanDaysTableOrderingComposer
+    extends Composer<_$AppDatabase, $RamadanDaysTable> {
+  $$RamadanDaysTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get dayNumber => $composableBuilder(
+    column: $table.dayNumber,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get date => $composableBuilder(
+    column: $table.date,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get excuse => $composableBuilder(
+    column: $table.excuse,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get taraweeh => $composableBuilder(
+    column: $table.taraweeh,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get tahajjud => $composableBuilder(
+    column: $table.tahajjud,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get qazaMadeUp => $composableBuilder(
+    column: $table.qazaMadeUp,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get note => $composableBuilder(
+    column: $table.note,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $$RamadanSeasonsTableOrderingComposer get seasonId {
+    final $$RamadanSeasonsTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.seasonId,
+      referencedTable: $db.ramadanSeasons,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$RamadanSeasonsTableOrderingComposer(
+            $db: $db,
+            $table: $db.ramadanSeasons,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$RamadanDaysTableAnnotationComposer
+    extends Composer<_$AppDatabase, $RamadanDaysTable> {
+  $$RamadanDaysTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get dayNumber =>
+      $composableBuilder(column: $table.dayNumber, builder: (column) => column);
+
+  GeneratedColumn<String> get date =>
+      $composableBuilder(column: $table.date, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<RozaStatus, int> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<RozaExcuse, int> get excuse =>
+      $composableBuilder(column: $table.excuse, builder: (column) => column);
+
+  GeneratedColumn<bool> get taraweeh =>
+      $composableBuilder(column: $table.taraweeh, builder: (column) => column);
+
+  GeneratedColumn<bool> get tahajjud =>
+      $composableBuilder(column: $table.tahajjud, builder: (column) => column);
+
+  GeneratedColumn<bool> get qazaMadeUp => $composableBuilder(
+    column: $table.qazaMadeUp,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get note =>
+      $composableBuilder(column: $table.note, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  $$RamadanSeasonsTableAnnotationComposer get seasonId {
+    final $$RamadanSeasonsTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.seasonId,
+      referencedTable: $db.ramadanSeasons,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$RamadanSeasonsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.ramadanSeasons,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$RamadanDaysTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $RamadanDaysTable,
+          RamadanDay,
+          $$RamadanDaysTableFilterComposer,
+          $$RamadanDaysTableOrderingComposer,
+          $$RamadanDaysTableAnnotationComposer,
+          $$RamadanDaysTableCreateCompanionBuilder,
+          $$RamadanDaysTableUpdateCompanionBuilder,
+          (RamadanDay, $$RamadanDaysTableReferences),
+          RamadanDay,
+          PrefetchHooks Function({bool seasonId})
+        > {
+  $$RamadanDaysTableTableManager(_$AppDatabase db, $RamadanDaysTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$RamadanDaysTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$RamadanDaysTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$RamadanDaysTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> seasonId = const Value.absent(),
+                Value<int> dayNumber = const Value.absent(),
+                Value<String?> date = const Value.absent(),
+                Value<RozaStatus> status = const Value.absent(),
+                Value<RozaExcuse> excuse = const Value.absent(),
+                Value<bool> taraweeh = const Value.absent(),
+                Value<bool> tahajjud = const Value.absent(),
+                Value<bool> qazaMadeUp = const Value.absent(),
+                Value<String?> note = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => RamadanDaysCompanion(
+                seasonId: seasonId,
+                dayNumber: dayNumber,
+                date: date,
+                status: status,
+                excuse: excuse,
+                taraweeh: taraweeh,
+                tahajjud: tahajjud,
+                qazaMadeUp: qazaMadeUp,
+                note: note,
+                updatedAt: updatedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required int seasonId,
+                required int dayNumber,
+                Value<String?> date = const Value.absent(),
+                Value<RozaStatus> status = const Value.absent(),
+                Value<RozaExcuse> excuse = const Value.absent(),
+                Value<bool> taraweeh = const Value.absent(),
+                Value<bool> tahajjud = const Value.absent(),
+                Value<bool> qazaMadeUp = const Value.absent(),
+                Value<String?> note = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => RamadanDaysCompanion.insert(
+                seasonId: seasonId,
+                dayNumber: dayNumber,
+                date: date,
+                status: status,
+                excuse: excuse,
+                taraweeh: taraweeh,
+                tahajjud: tahajjud,
+                qazaMadeUp: qazaMadeUp,
+                note: note,
+                updatedAt: updatedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$RamadanDaysTable, RamadanDay>(table),
+                  $$RamadanDaysTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({seasonId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (seasonId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.seasonId,
+                                referencedTable: $$RamadanDaysTableReferences
+                                    ._seasonIdTable(db),
+                                referencedColumn: $$RamadanDaysTableReferences
+                                    ._seasonIdTable(db)
+                                    .id,
+                              )
+                              as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$RamadanDaysTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $RamadanDaysTable,
+      RamadanDay,
+      $$RamadanDaysTableFilterComposer,
+      $$RamadanDaysTableOrderingComposer,
+      $$RamadanDaysTableAnnotationComposer,
+      $$RamadanDaysTableCreateCompanionBuilder,
+      $$RamadanDaysTableUpdateCompanionBuilder,
+      (RamadanDay, $$RamadanDaysTableReferences),
+      RamadanDay,
+      PrefetchHooks Function({bool seasonId})
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -9295,4 +11392,8 @@ class $AppDatabaseManager {
       $$TasksTableTableManager(_db, _db.tasks);
   $$TaskCompletionsTableTableManager get taskCompletions =>
       $$TaskCompletionsTableTableManager(_db, _db.taskCompletions);
+  $$RamadanSeasonsTableTableManager get ramadanSeasons =>
+      $$RamadanSeasonsTableTableManager(_db, _db.ramadanSeasons);
+  $$RamadanDaysTableTableManager get ramadanDays =>
+      $$RamadanDaysTableTableManager(_db, _db.ramadanDays);
 }

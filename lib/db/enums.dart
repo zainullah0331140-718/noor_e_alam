@@ -129,6 +129,41 @@ enum MuraqabaTime {
 /// Category of a timetable task — drives colours and the time breakdown.
 enum TaskCategory { ibadah, work, study, family, health, rest }
 
+/// Ramadan fast status for one day of the month.
+///
+/// Persisted via `intEnum` in [RamadanDays] — append new values only.
+enum RozaStatus {
+  /// Not logged yet.
+  notRecorded,
+  /// Fasted the whole day (روزہ رکھا).
+  fasted,
+  /// Did not fast, with a valid shar'i reason (e.g. sickness, travel).
+  missedExcused,
+  /// Did not fast without a valid reason (auto-adds a qaza).
+  missedNoExcuse;
+}
+
+/// Shar'i reasons accepted for a missed fast.
+///
+/// Persisted via `intEnum` in [RamadanDays] — append new values only.
+enum RozaExcuse {
+  /// No reason recorded.
+  none,
+  /// Illness (بیماری).
+  sickness,
+  /// Travel (سفر).
+  travel,
+  /// Menstruation / post-natal (شرعی عذر).
+  shariExcuse,
+  /// Pregnancy or nursing.
+  pregnancyNursing,
+  /// Old age / weakness.
+  oldAge,
+  /// Other valid reason.
+  other;
+}
+
+
 /// How often a timetable task repeats.
 enum TaskRepeat {
   /// Only on [Tasks.anchorDate].

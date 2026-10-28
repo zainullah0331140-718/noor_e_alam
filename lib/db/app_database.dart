@@ -12,6 +12,7 @@ import 'daos/muraqaba_dao.dart';
 import 'daos/nafl_dao.dart';
 import 'daos/namaz_dao.dart';
 import 'daos/qaza_dao.dart';
+import 'daos/ramadan_dao.dart';
 import 'daos/tilawat_dao.dart';
 import 'daos/timetable_dao.dart';
 import 'enums.dart';
@@ -45,6 +46,8 @@ LazyDatabase _openConnection() {
     MuraqabaSessions,
     Tasks,
     TaskCompletions,
+    RamadanSeasons,
+    RamadanDays,
   ],
   daos: [
     NamazDao,
@@ -56,6 +59,7 @@ LazyDatabase _openConnection() {
     GheebatDao,
     MuraqabaDao,
     TimetableDao,
+    RamadanDao,
   ],
 )
 class AppDatabase extends _$AppDatabase {
@@ -66,7 +70,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(super.e);
 
   @override
-  int get schemaVersion => 4;
+  int get schemaVersion => 5;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -96,6 +100,11 @@ class AppDatabase extends _$AppDatabase {
         await m.createTable(muraqabaSessions);
         await m.createTable(tasks);
         await m.createTable(taskCompletions);
+      }
+      if (from < 5) {
+        // Phase 5: Ramadan Hub.
+        await m.createTable(ramadanSeasons);
+        await m.createTable(ramadanDays);
       }
     },
   );

@@ -2326,6 +2326,624 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sleep'**
   String get taskTplSleep;
+
+  /// No description provided for @phaseFiveBanner.
+  ///
+  /// In en, this message translates to:
+  /// **'Phase 5 · Ramadan, Reports, Print & Backup are live'**
+  String get phaseFiveBanner;
+
+  /// No description provided for @ramadanHubTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ramadan Hub'**
+  String get ramadanHubTitle;
+
+  /// No description provided for @ramadanIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Track every Roza, Taraweeh, Tahajjud and Laylatul Qadr night — a complete record of the blessed month.'**
+  String get ramadanIntro;
+
+  /// Ramadan season label.
+  ///
+  /// In en, this message translates to:
+  /// **'Hijri year {year}'**
+  String ramadanSeasonLabel(int year);
+
+  /// Estimated Gregorian start of Ramadan.
+  ///
+  /// In en, this message translates to:
+  /// **'1st Ramadan ≈ {date}'**
+  String ramadanStartsOn(String date);
+
+  /// No description provided for @ramadanProgressTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Fasting progress'**
+  String get ramadanProgressTitle;
+
+  /// No description provided for @ramadanFastedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Fasted'**
+  String get ramadanFastedLabel;
+
+  /// No description provided for @ramadanMissedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Missed'**
+  String get ramadanMissedLabel;
+
+  /// No description provided for @ramadanNotRecordedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Not logged'**
+  String get ramadanNotRecordedLabel;
+
+  /// No description provided for @ramadanExcusedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'With excuse'**
+  String get ramadanExcusedLabel;
+
+  /// No description provided for @ramadanNoExcuseLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Without excuse'**
+  String get ramadanNoExcuseLabel;
+
+  /// No description provided for @ramadanRozaGridTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'30-day Roza tracker'**
+  String get ramadanRozaGridTitle;
+
+  /// Ramadan day label.
+  ///
+  /// In en, this message translates to:
+  /// **'Day {number}'**
+  String ramadanDay(int number);
+
+  /// No description provided for @ramadanTaraweehTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Taraweeh'**
+  String get ramadanTaraweehTitle;
+
+  /// No description provided for @ramadanTahajjudTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tahajjud'**
+  String get ramadanTahajjudTitle;
+
+  /// No description provided for @ramadanTaraweehNights.
+  ///
+  /// In en, this message translates to:
+  /// **'Taraweeh nights'**
+  String get ramadanTaraweehNights;
+
+  /// No description provided for @ramadanTahajjudNights.
+  ///
+  /// In en, this message translates to:
+  /// **'Tahajjud nights'**
+  String get ramadanTahajjudNights;
+
+  /// No description provided for @ramadanQazaTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Qaza fasts'**
+  String get ramadanQazaTitle;
+
+  /// Pending qaza fasts.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} pending'**
+  String ramadanQazaPending(int count);
+
+  /// No description provided for @ramadanQazaMadeUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Qaza made up'**
+  String get ramadanQazaMadeUp;
+
+  /// No description provided for @ramadanQazaMadeUpDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Marked as made up'**
+  String get ramadanQazaMadeUpDone;
+
+  /// No description provided for @ramadanLaylatulQadrTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Laylatul Qadr'**
+  String get ramadanLaylatulQadrTitle;
+
+  /// No description provided for @ramadanLaylatulQadrBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Note the odd nights you observed (e.g. 27) — may Allah accept.'**
+  String get ramadanLaylatulQadrBody;
+
+  /// No description provided for @ramadanLaylatulQadrHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. 21, 23, 25, 27, 29'**
+  String get ramadanLaylatulQadrHint;
+
+  /// No description provided for @ramadanItikafTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Itikaf'**
+  String get ramadanItikafTitle;
+
+  /// No description provided for @ramadanItikafBody.
+  ///
+  /// In en, this message translates to:
+  /// **'I observed Itikaf this Ramadan'**
+  String get ramadanItikafBody;
+
+  /// No description provided for @ramadanZakatTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Zakat & Sadaqah'**
+  String get ramadanZakatTitle;
+
+  /// No description provided for @ramadanZakatLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Zakat'**
+  String get ramadanZakatLabel;
+
+  /// No description provided for @ramadanSadaqahLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Sadaqah'**
+  String get ramadanSadaqahLabel;
+
+  /// No description provided for @ramadanAddAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Add amount'**
+  String get ramadanAddAmount;
+
+  /// No description provided for @ramadanAmountLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount'**
+  String get ramadanAmountLabel;
+
+  /// No description provided for @ramadanAmountSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount recorded'**
+  String get ramadanAmountSaved;
+
+  /// No description provided for @ramadanMealTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sehri & Iftar'**
+  String get ramadanMealTitle;
+
+  /// No description provided for @ramadanSehriTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Sehri'**
+  String get ramadanSehriTime;
+
+  /// No description provided for @ramadanIftarTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Iftar'**
+  String get ramadanIftarTime;
+
+  /// No description provided for @ramadanSetMealTimes.
+  ///
+  /// In en, this message translates to:
+  /// **'Set times'**
+  String get ramadanSetMealTimes;
+
+  /// No description provided for @ramadanMealTimesSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Meal times saved'**
+  String get ramadanMealTimesSaved;
+
+  /// No description provided for @ramadanExcuseTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reason for missing'**
+  String get ramadanExcuseTitle;
+
+  /// No description provided for @ramadanExcuseNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No reason'**
+  String get ramadanExcuseNone;
+
+  /// No description provided for @ramadanExcuseSickness.
+  ///
+  /// In en, this message translates to:
+  /// **'Sickness'**
+  String get ramadanExcuseSickness;
+
+  /// No description provided for @ramadanExcuseTravel.
+  ///
+  /// In en, this message translates to:
+  /// **'Travel'**
+  String get ramadanExcuseTravel;
+
+  /// No description provided for @ramadanExcuseShari.
+  ///
+  /// In en, this message translates to:
+  /// **'Shar\'i excuse'**
+  String get ramadanExcuseShari;
+
+  /// No description provided for @ramadanExcusePregnancy.
+  ///
+  /// In en, this message translates to:
+  /// **'Pregnancy / nursing'**
+  String get ramadanExcusePregnancy;
+
+  /// No description provided for @ramadanExcuseOldAge.
+  ///
+  /// In en, this message translates to:
+  /// **'Old age'**
+  String get ramadanExcuseOldAge;
+
+  /// No description provided for @ramadanExcuseOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get ramadanExcuseOther;
+
+  /// No description provided for @ramadanDaySaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Roza updated'**
+  String get ramadanDaySaved;
+
+  /// No description provided for @ramadanDayNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Note (optional)'**
+  String get ramadanDayNote;
+
+  /// No description provided for @ramadanStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Fasting streak'**
+  String get ramadanStreak;
+
+  /// No description provided for @ramadanYearlyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ramadan by year'**
+  String get ramadanYearlyTitle;
+
+  /// No description provided for @ramadanFastPercent.
+  ///
+  /// In en, this message translates to:
+  /// **'Fasted'**
+  String get ramadanFastPercent;
+
+  /// No description provided for @ramadanStatusFasted.
+  ///
+  /// In en, this message translates to:
+  /// **'Fasted'**
+  String get ramadanStatusFasted;
+
+  /// No description provided for @ramadanStatusMissedExcused.
+  ///
+  /// In en, this message translates to:
+  /// **'Missed (excused)'**
+  String get ramadanStatusMissedExcused;
+
+  /// No description provided for @ramadanStatusMissedNoExcuse.
+  ///
+  /// In en, this message translates to:
+  /// **'Missed'**
+  String get ramadanStatusMissedNoExcuse;
+
+  /// No description provided for @ramadanStatusNotRecorded.
+  ///
+  /// In en, this message translates to:
+  /// **'Not logged'**
+  String get ramadanStatusNotRecorded;
+
+  /// No description provided for @ramadanNoSeasonHint.
+  ///
+  /// In en, this message translates to:
+  /// **'This year\'s Ramadan season is ready to track.'**
+  String get ramadanNoSeasonHint;
+
+  /// No description provided for @reportsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reports & Print'**
+  String get reportsTitle;
+
+  /// No description provided for @reportsIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate a bilingual (Urdu + English) PDF of your ibadah and print or share it.'**
+  String get reportsIntro;
+
+  /// No description provided for @reportsRangeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Report period'**
+  String get reportsRangeTitle;
+
+  /// No description provided for @reportsModulesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Modules to include'**
+  String get reportsModulesTitle;
+
+  /// No description provided for @reportsIncludeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All modules'**
+  String get reportsIncludeAll;
+
+  /// No description provided for @reportsGenerate.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate PDF'**
+  String get reportsGenerate;
+
+  /// No description provided for @reportsPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview & print'**
+  String get reportsPreview;
+
+  /// No description provided for @reportsSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Report generated'**
+  String get reportsSaved;
+
+  /// No description provided for @reportsFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not generate the report'**
+  String get reportsFailed;
+
+  /// No description provided for @reportsBismillah.
+  ///
+  /// In en, this message translates to:
+  /// **'In the name of Allah, the Most Gracious, the Most Merciful'**
+  String get reportsBismillah;
+
+  /// No description provided for @reportsTitleHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Ibadah Report'**
+  String get reportsTitleHeading;
+
+  /// No description provided for @reportsGeneratedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Generated on'**
+  String get reportsGeneratedOn;
+
+  /// No description provided for @reportsPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'Period'**
+  String get reportsPeriod;
+
+  /// No description provided for @reportsSummaryTable.
+  ///
+  /// In en, this message translates to:
+  /// **'Summary'**
+  String get reportsSummaryTable;
+
+  /// No description provided for @reportsModuleColumn.
+  ///
+  /// In en, this message translates to:
+  /// **'Module'**
+  String get reportsModuleColumn;
+
+  /// No description provided for @reportsDoneColumn.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get reportsDoneColumn;
+
+  /// No description provided for @reportsTotalColumn.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get reportsTotalColumn;
+
+  /// No description provided for @reportsPercentColumn.
+  ///
+  /// In en, this message translates to:
+  /// **'%'**
+  String get reportsPercentColumn;
+
+  /// No description provided for @reportsNoDataForRange.
+  ///
+  /// In en, this message translates to:
+  /// **'No entries for the selected period.'**
+  String get reportsNoDataForRange;
+
+  /// No description provided for @reportsDayRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Day'**
+  String get reportsDayRange;
+
+  /// No description provided for @reportsMonthRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Month'**
+  String get reportsMonthRange;
+
+  /// No description provided for @reportsYearRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Year'**
+  String get reportsYearRange;
+
+  /// No description provided for @reportsSelectDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Select date'**
+  String get reportsSelectDate;
+
+  /// No description provided for @settingsBackupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup & Restore'**
+  String get settingsBackupTitle;
+
+  /// No description provided for @settingsBackupExport.
+  ///
+  /// In en, this message translates to:
+  /// **'Export backup (JSON)'**
+  String get settingsBackupExport;
+
+  /// No description provided for @settingsBackupImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore from backup'**
+  String get settingsBackupImport;
+
+  /// No description provided for @settingsBackupExported.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup exported'**
+  String get settingsBackupExported;
+
+  /// No description provided for @settingsBackupImported.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup restored'**
+  String get settingsBackupImported;
+
+  /// No description provided for @settingsBackupImportConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Restoring will replace all current data. Continue?'**
+  String get settingsBackupImportConfirm;
+
+  /// No description provided for @settingsBackupError.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup failed'**
+  String get settingsBackupError;
+
+  /// No description provided for @settingsNotificationsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get settingsNotificationsTitle;
+
+  /// No description provided for @settingsNotificationsPrayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Prayer-time reminders'**
+  String get settingsNotificationsPrayer;
+
+  /// No description provided for @settingsNotificationsPrayerBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Notify me at each prayer time'**
+  String get settingsNotificationsPrayerBody;
+
+  /// No description provided for @settingsNotificationsRoza.
+  ///
+  /// In en, this message translates to:
+  /// **'Ramadan Sehri & Iftar reminders'**
+  String get settingsNotificationsRoza;
+
+  /// No description provided for @settingsNotificationsRozaBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders during Ramadan'**
+  String get settingsNotificationsRozaBody;
+
+  /// No description provided for @settingsNotificationsTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Send a test notification'**
+  String get settingsNotificationsTest;
+
+  /// No description provided for @settingsNotificationsTestSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Test notification sent'**
+  String get settingsNotificationsTestSent;
+
+  /// No description provided for @settingsNotificationsDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification permission denied'**
+  String get settingsNotificationsDenied;
+
+  /// Title of the prayer-time reminder notification.
+  ///
+  /// In en, this message translates to:
+  /// **'Prayer Time'**
+  String get notifPrayerTitle;
+
+  /// Body of the prayer-time reminder notification.
+  ///
+  /// In en, this message translates to:
+  /// **'It is time for {prayer}.'**
+  String notifPrayerBody(String prayer);
+
+  /// Title of the Ramadan Sehri/Iftar reminder notification.
+  ///
+  /// In en, this message translates to:
+  /// **'Ramadan'**
+  String get notifRozaTitle;
+
+  /// Body of the Ramadan Sehri/Iftar reminder notification.
+  ///
+  /// In en, this message translates to:
+  /// **'It is time for {event}.'**
+  String notifRozaBody(String event);
+
+  /// No description provided for @settingsPrayerMethod.
+  ///
+  /// In en, this message translates to:
+  /// **'Prayer calculation method'**
+  String get settingsPrayerMethod;
+
+  /// No description provided for @settingsPrayerMethodTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Method'**
+  String get settingsPrayerMethodTitle;
+
+  /// No description provided for @restoreConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore backup?'**
+  String get restoreConfirmTitle;
+
+  /// No description provided for @restoreWord.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore'**
+  String get restoreWord;
+
+  /// No description provided for @exportWord.
+  ///
+  /// In en, this message translates to:
+  /// **'Export'**
+  String get exportWord;
+
+  /// No description provided for @okWord.
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get okWord;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

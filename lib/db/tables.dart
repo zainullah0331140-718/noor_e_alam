@@ -325,3 +325,70 @@ class TaskCompletions extends Table {
   @override
   Set<Column> get primaryKey => {taskId, date};
 }
+
+/// One Ramadan cycle (a year's month of fasting).
+///
+/// `id` is an auto-increment key; [hijriYear] identifies the Islamic year.
+/// The 30 daily rows live in [RamadanDays].
+class RamadanSeasons extends Table {
+  IntColumn get id => integer().autoIncrement()();
+
+  /// Islamic (Hijri) year the Ramadan belongs to (e.g. 1447).
+  IntColumn get hijriYear => integer()();
+
+  /// `yyyy-MM-dd` the first fast is expected on (best effort).
+  TextColumn get startDate => text()();
+
+  /// User-provided Sehri/Iftar times as `HH:mm` (optional overrides).
+  TextColumn get sehriTime => text().nullable()();
+  TextColumn get iftarTime => text().nullable()();
+
+  /// Yearly Zakat / Sadaqah totals logged for this Ramadan.
+  IntColumn get zakatAmount => integer().withDefault(const Constant(0))();
+  IntColumn get sadaqahAmount => integer().withDefault(const Constant(0))();
+
+  /// Whether the user kept Itikaf this Ramadan.
+  BoolColumn get itikafDone => boolean().withDefault(const Constant(false))();
+
+  /// Night(s) the user observed as Laylatul Qadr (free text, e.g. "27").
+  TextColumn get laylatulQadrNote => text().nullable()();
+
+  DateTimeColumn get updatedAt => dateTime().withDefault(currentDateAndTime)();
+}
+
+/// One day's fasting record inside a [RamadanSeasons] cycle.
+///
+/// Primary key = (seasonId, dayNumber). Deleting the season cascades here.
+class RamadanDays extends Table {
+  IntColumn get seasonId =>
+      integer().references(RamadanSeasons, #id, onDelete: KeyAction.cascade)();
+
+  /// Day of Ramadan, 1..30.
+  IntColumn get dayNumber => integer()();
+
+  /// `yyyy-MM-dd` this Roza falls on, when known.
+  TextColumn get date => text().nullable()();
+
+  IntColumn get status =>
+      intEnum<RozaStatus>().withDefault(const Constant(0))();
+
+  IntColumn get excuse =>
+      intEnum<RozaExcuse>().withDefault(const Constant(0))();
+
+  /// Taraweeh prayed that night.
+  BoolColumn get taraweeh => boolean().withDefault(const Constant(false))();
+
+  /// Tahajjud prayed that night.
+  BoolColumn get tahajjud => boolean().withDefault(const Constant(false))();
+
+  /// Whether qaza was already made up for a missed fast.
+  BoolColumn get qazaMadeUp => boolean().withDefault(const Constant(false))();
+
+  /// Optional private note.
+  TextColumn get note => text().nullable()();
+
+  DateTimeColumn get updatedAt => dateTime().withDefault(currentDateAndTime)();
+
+  @override
+  Set<Column> get primaryKey => {seasonId, dayNumber};
+}

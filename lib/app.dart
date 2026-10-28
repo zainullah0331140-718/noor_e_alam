@@ -5,6 +5,7 @@ import 'l10n/app_localizations.dart';
 import 'presentation/screens/home_shell.dart';
 import 'presentation/screens/splash_screen.dart';
 import 'providers/app_providers.dart';
+import 'providers/notification_providers.dart';
 import 'providers/settings_providers.dart';
 import 'theme/app_theme.dart';
 
@@ -25,6 +26,9 @@ class _NoorEAmalAppState extends ConsumerState<NoorEAmalApp> {
     final themeMode = ref.watch(themeModeProvider);
     final locale = ref.watch(localeProvider);
     final seed = ref.watch(seedProvider);
+
+    // Keep the scheduled notifications in sync with prefs/location/prayer times.
+    ref.watch(notificationScheduleProvider);
 
     // Show the shell once the DB seed finished AND the splash timer elapsed.
     final ready = _splashDone && seed.hasValue;

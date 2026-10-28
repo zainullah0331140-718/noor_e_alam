@@ -4,12 +4,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../l10n/app_localizations.dart';
 import '../screens/azkar_screen.dart';
 import '../screens/dashboard_screen.dart';
+import '../screens/gheebat_screen.dart';
 import '../screens/khatam_screen.dart';
+import '../screens/muraqaba_screen.dart';
 import '../screens/nafl_screen.dart';
 import '../screens/namaz_screen.dart';
+import '../screens/ramadan_screen.dart';
+import '../screens/reports_screen.dart';
 import '../screens/settings_screen.dart';
 import '../screens/tilawat_screen.dart';
-import '../widgets/module_placeholder.dart';
+import '../screens/timetable_screen.dart';
 
 /// A top-level destination in the navigation shell.
 class _Destination {
@@ -63,19 +67,35 @@ class _HomeShellState extends ConsumerState<HomeShell> {
       () => const KhatamScreen(),
     ),
     _Destination(
+      (l) => l.moduleGheebat,
+      Icons.record_voice_over_outlined,
+      () => const GheebatScreen(),
+    ),
+    _Destination(
+      (l) => l.moduleMuraqaba,
+      Icons.spa_outlined,
+      () => const MuraqabaScreen(),
+    ),
+    _Destination(
+      (l) => l.moduleTimetable,
+      Icons.checklist_outlined,
+      () => const TimetableScreen(),
+    ),
+    _Destination(
+      (l) => l.moduleRamadan,
+      Icons.nightlight_outlined,
+      () => const RamadanScreen(),
+    ),
+    _Destination(
+      (l) => l.moduleReports,
+      Icons.picture_as_pdf_outlined,
+      () => const ReportsScreen(),
+    ),
+    _Destination(
       (l) => l.moduleSettings,
       Icons.settings_outlined,
       () => const SettingsScreen(),
     ),
-  ];
-
-  /// Remaining modules (Phase 4+) exposed via the app-bar overflow menu.
-  static final _futureMenu = <String Function(AppLocalizations)>[
-    (l) => l.moduleTimetable,
-    (l) => l.moduleGheebat,
-    (l) => l.moduleMuraqaba,
-    (l) => l.moduleRamadan,
-    (l) => l.moduleReports,
   ];
 
   @override
@@ -93,41 +113,6 @@ class _HomeShellState extends ConsumerState<HomeShell> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_destinations[_index].label(l10n)),
-        actions: [
-          PopupMenuButton<int>(
-            tooltip: l10n.menu,
-            icon: const Icon(Icons.apps),
-            onSelected: (i) {
-              if (i < _destinations.length) {
-                setState(() => _index = i);
-              } else {
-                _showComingSoon(
-                  context,
-                  _futureMenu[i - _destinations.length](l10n),
-                );
-              }
-            },
-            itemBuilder: (context) => [
-              for (var i = 0; i < _destinations.length; i++)
-                PopupMenuItem(
-                  value: i,
-                  child: Row(
-                    children: [
-                      Icon(_destinations[i].icon, size: 18),
-                      const SizedBox(width: 10),
-                      Text(_destinations[i].label(l10n)),
-                    ],
-                  ),
-                ),
-              const PopupMenuDivider(),
-              for (var i = 0; i < _futureMenu.length; i++)
-                PopupMenuItem(
-                  value: _destinations.length + i,
-                  child: Text(_futureMenu[i](l10n)),
-                ),
-            ],
-          ),
-        ],
       ),
       drawer: wide
           ? null
@@ -150,6 +135,9 @@ class _HomeShellState extends ConsumerState<HomeShell> {
                   selectedIndex: _index,
                   onDestinationSelected: (i) => setState(() => _index = i),
                   labelType: NavigationRailLabelType.all,
+                  // Eleven destinations do not fit a short window; scroll the
+                  // group instead of overflowing the rail.
+                  scrollable: true,
                   leading: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     child: Icon(
@@ -188,20 +176,9 @@ class _HomeShellState extends ConsumerState<HomeShell> {
             ),
           ),
           const SizedBox(height: 4),
-          Text(l10n.phaseThreeBanner,
+          Text(l10n.phaseFourBanner,
               style: Theme.of(context).textTheme.bodySmall),
         ],
-      ),
-    );
-  }
-
-  void _showComingSoon(BuildContext context, String title) {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (_) => Scaffold(
-          appBar: AppBar(title: Text(title)),
-          body: ModulePlaceholder(title: title),
-        ),
       ),
     );
   }

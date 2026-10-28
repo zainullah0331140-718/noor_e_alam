@@ -1169,4 +1169,325 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get taskTplSleep => 'Sleep';
+
+  @override
+  String get phaseFiveBanner => 'Phase 5 · Ramadan, Reports, Print & Backup are live';
+
+  @override
+  String get ramadanHubTitle => 'Ramadan Hub';
+
+  @override
+  String get ramadanIntro => 'Track every Roza, Taraweeh, Tahajjud and Laylatul Qadr night — a complete record of the blessed month.';
+
+  @override
+  String ramadanSeasonLabel(int year) {
+    return 'Hijri year $year';
+  }
+
+  @override
+  String ramadanStartsOn(String date) {
+    return '1st Ramadan ≈ $date';
+  }
+
+  @override
+  String get ramadanProgressTitle => 'Fasting progress';
+
+  @override
+  String get ramadanFastedLabel => 'Fasted';
+
+  @override
+  String get ramadanMissedLabel => 'Missed';
+
+  @override
+  String get ramadanNotRecordedLabel => 'Not logged';
+
+  @override
+  String get ramadanExcusedLabel => 'With excuse';
+
+  @override
+  String get ramadanNoExcuseLabel => 'Without excuse';
+
+  @override
+  String get ramadanRozaGridTitle => '30-day Roza tracker';
+
+  @override
+  String ramadanDay(int number) {
+    return 'Day $number';
+  }
+
+  @override
+  String get ramadanTaraweehTitle => 'Taraweeh';
+
+  @override
+  String get ramadanTahajjudTitle => 'Tahajjud';
+
+  @override
+  String get ramadanTaraweehNights => 'Taraweeh nights';
+
+  @override
+  String get ramadanTahajjudNights => 'Tahajjud nights';
+
+  @override
+  String get ramadanQazaTitle => 'Qaza fasts';
+
+  @override
+  String ramadanQazaPending(int count) {
+    return '$count pending';
+  }
+
+  @override
+  String get ramadanQazaMadeUp => 'Qaza made up';
+
+  @override
+  String get ramadanQazaMadeUpDone => 'Marked as made up';
+
+  @override
+  String get ramadanLaylatulQadrTitle => 'Laylatul Qadr';
+
+  @override
+  String get ramadanLaylatulQadrBody => 'Note the odd nights you observed (e.g. 27) — may Allah accept.';
+
+  @override
+  String get ramadanLaylatulQadrHint => 'e.g. 21, 23, 25, 27, 29';
+
+  @override
+  String get ramadanItikafTitle => 'Itikaf';
+
+  @override
+  String get ramadanItikafBody => 'I observed Itikaf this Ramadan';
+
+  @override
+  String get ramadanZakatTitle => 'Zakat & Sadaqah';
+
+  @override
+  String get ramadanZakatLabel => 'Zakat';
+
+  @override
+  String get ramadanSadaqahLabel => 'Sadaqah';
+
+  @override
+  String get ramadanAddAmount => 'Add amount';
+
+  @override
+  String get ramadanAmountLabel => 'Amount';
+
+  @override
+  String get ramadanAmountSaved => 'Amount recorded';
+
+  @override
+  String get ramadanMealTitle => 'Sehri & Iftar';
+
+  @override
+  String get ramadanSehriTime => 'Sehri';
+
+  @override
+  String get ramadanIftarTime => 'Iftar';
+
+  @override
+  String get ramadanSetMealTimes => 'Set times';
+
+  @override
+  String get ramadanMealTimesSaved => 'Meal times saved';
+
+  @override
+  String get ramadanExcuseTitle => 'Reason for missing';
+
+  @override
+  String get ramadanExcuseNone => 'No reason';
+
+  @override
+  String get ramadanExcuseSickness => 'Sickness';
+
+  @override
+  String get ramadanExcuseTravel => 'Travel';
+
+  @override
+  String get ramadanExcuseShari => 'Shar\'i excuse';
+
+  @override
+  String get ramadanExcusePregnancy => 'Pregnancy / nursing';
+
+  @override
+  String get ramadanExcuseOldAge => 'Old age';
+
+  @override
+  String get ramadanExcuseOther => 'Other';
+
+  @override
+  String get ramadanDaySaved => 'Roza updated';
+
+  @override
+  String get ramadanDayNote => 'Note (optional)';
+
+  @override
+  String get ramadanStreak => 'Fasting streak';
+
+  @override
+  String get ramadanYearlyTitle => 'Ramadan by year';
+
+  @override
+  String get ramadanFastPercent => 'Fasted';
+
+  @override
+  String get ramadanStatusFasted => 'Fasted';
+
+  @override
+  String get ramadanStatusMissedExcused => 'Missed (excused)';
+
+  @override
+  String get ramadanStatusMissedNoExcuse => 'Missed';
+
+  @override
+  String get ramadanStatusNotRecorded => 'Not logged';
+
+  @override
+  String get ramadanNoSeasonHint => 'This year\'s Ramadan season is ready to track.';
+
+  @override
+  String get reportsTitle => 'Reports & Print';
+
+  @override
+  String get reportsIntro => 'Generate a bilingual (Urdu + English) PDF of your ibadah and print or share it.';
+
+  @override
+  String get reportsRangeTitle => 'Report period';
+
+  @override
+  String get reportsModulesTitle => 'Modules to include';
+
+  @override
+  String get reportsIncludeAll => 'All modules';
+
+  @override
+  String get reportsGenerate => 'Generate PDF';
+
+  @override
+  String get reportsPreview => 'Preview & print';
+
+  @override
+  String get reportsSaved => 'Report generated';
+
+  @override
+  String get reportsFailed => 'Could not generate the report';
+
+  @override
+  String get reportsBismillah => 'In the name of Allah, the Most Gracious, the Most Merciful';
+
+  @override
+  String get reportsTitleHeading => 'Ibadah Report';
+
+  @override
+  String get reportsGeneratedOn => 'Generated on';
+
+  @override
+  String get reportsPeriod => 'Period';
+
+  @override
+  String get reportsSummaryTable => 'Summary';
+
+  @override
+  String get reportsModuleColumn => 'Module';
+
+  @override
+  String get reportsDoneColumn => 'Done';
+
+  @override
+  String get reportsTotalColumn => 'Total';
+
+  @override
+  String get reportsPercentColumn => '%';
+
+  @override
+  String get reportsNoDataForRange => 'No entries for the selected period.';
+
+  @override
+  String get reportsDayRange => 'Day';
+
+  @override
+  String get reportsMonthRange => 'Month';
+
+  @override
+  String get reportsYearRange => 'Year';
+
+  @override
+  String get reportsSelectDate => 'Select date';
+
+  @override
+  String get settingsBackupTitle => 'Backup & Restore';
+
+  @override
+  String get settingsBackupExport => 'Export backup (JSON)';
+
+  @override
+  String get settingsBackupImport => 'Restore from backup';
+
+  @override
+  String get settingsBackupExported => 'Backup exported';
+
+  @override
+  String get settingsBackupImported => 'Backup restored';
+
+  @override
+  String get settingsBackupImportConfirm => 'Restoring will replace all current data. Continue?';
+
+  @override
+  String get settingsBackupError => 'Backup failed';
+
+  @override
+  String get settingsNotificationsTitle => 'Notifications';
+
+  @override
+  String get settingsNotificationsPrayer => 'Prayer-time reminders';
+
+  @override
+  String get settingsNotificationsPrayerBody => 'Notify me at each prayer time';
+
+  @override
+  String get settingsNotificationsRoza => 'Ramadan Sehri & Iftar reminders';
+
+  @override
+  String get settingsNotificationsRozaBody => 'Reminders during Ramadan';
+
+  @override
+  String get settingsNotificationsTest => 'Send a test notification';
+
+  @override
+  String get settingsNotificationsTestSent => 'Test notification sent';
+
+  @override
+  String get settingsNotificationsDenied => 'Notification permission denied';
+
+  @override
+  String get notifPrayerTitle => 'Prayer Time';
+
+  @override
+  String notifPrayerBody(String prayer) {
+    return 'It is time for $prayer.';
+  }
+
+  @override
+  String get notifRozaTitle => 'Ramadan';
+
+  @override
+  String notifRozaBody(String event) {
+    return 'It is time for $event.';
+  }
+
+  @override
+  String get settingsPrayerMethod => 'Prayer calculation method';
+
+  @override
+  String get settingsPrayerMethodTitle => 'Method';
+
+  @override
+  String get restoreConfirmTitle => 'Restore backup?';
+
+  @override
+  String get restoreWord => 'Restore';
+
+  @override
+  String get exportWord => 'Export';
+
+  @override
+  String get okWord => 'OK';
 }

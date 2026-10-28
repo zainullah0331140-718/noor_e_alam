@@ -1169,4 +1169,325 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get taskTplSleep => 'نیند';
+
+  @override
+  String get phaseFiveBanner => 'مرحلہ ۵ · رمضان، رپورٹس، پرنٹ اور بیک اپ دستیاب ہیں';
+
+  @override
+  String get ramadanHubTitle => 'رمضان ہب';
+
+  @override
+  String get ramadanIntro => 'ہر روزہ، تراویح، تہجد اور لیلۃ القدر کی رات کا مکمل ریکارڈ — اس مبارک ماہ کا پورا حساب۔';
+
+  @override
+  String ramadanSeasonLabel(int year) {
+    return 'ہجری سال $year';
+  }
+
+  @override
+  String ramadanStartsOn(String date) {
+    return 'پہلا رمضان ≈ $date';
+  }
+
+  @override
+  String get ramadanProgressTitle => 'روزے کی پیش رفت';
+
+  @override
+  String get ramadanFastedLabel => 'روزہ رکھا';
+
+  @override
+  String get ramadanMissedLabel => 'چھوٹ گیا';
+
+  @override
+  String get ramadanNotRecordedLabel => 'درج نہیں';
+
+  @override
+  String get ramadanExcusedLabel => 'عذر کے ساتھ';
+
+  @override
+  String get ramadanNoExcuseLabel => 'بغیر عذر';
+
+  @override
+  String get ramadanRozaGridTitle => '۳۰ روزہ ٹریکر';
+
+  @override
+  String ramadanDay(int number) {
+    return 'دن $number';
+  }
+
+  @override
+  String get ramadanTaraweehTitle => 'تراویح';
+
+  @override
+  String get ramadanTahajjudTitle => 'تہجد';
+
+  @override
+  String get ramadanTaraweehNights => 'تراویح کی راتیں';
+
+  @override
+  String get ramadanTahajjudNights => 'تہجد کی راتیں';
+
+  @override
+  String get ramadanQazaTitle => 'قضا روزے';
+
+  @override
+  String ramadanQazaPending(int count) {
+    return '$count باقی';
+  }
+
+  @override
+  String get ramadanQazaMadeUp => 'قضا ادا ہو گئی';
+
+  @override
+  String get ramadanQazaMadeUpDone => 'قضا ادا شدہ قرار دی گئی';
+
+  @override
+  String get ramadanLaylatulQadrTitle => 'لیلۃ القدر';
+
+  @override
+  String get ramadanLaylatulQadrBody => 'جن طاق راتوں میں عبادت کی (مثلاً ۲۷) وہ نوٹ کریں — اللہ قبول فرمائے۔';
+
+  @override
+  String get ramadanLaylatulQadrHint => 'مثلاً ۲۱، ۲۳، ۲۵، ۲۷، ۲۹';
+
+  @override
+  String get ramadanItikafTitle => 'اعتکاف';
+
+  @override
+  String get ramadanItikafBody => 'میں نے اس رمضان اعتکاف کیا';
+
+  @override
+  String get ramadanZakatTitle => 'زکوٰۃ و صدقہ';
+
+  @override
+  String get ramadanZakatLabel => 'زکوٰۃ';
+
+  @override
+  String get ramadanSadaqahLabel => 'صدقہ';
+
+  @override
+  String get ramadanAddAmount => 'رقم شامل کریں';
+
+  @override
+  String get ramadanAmountLabel => 'رقم';
+
+  @override
+  String get ramadanAmountSaved => 'رقم درج ہو گئی';
+
+  @override
+  String get ramadanMealTitle => 'سحری و افطار';
+
+  @override
+  String get ramadanSehriTime => 'سحری';
+
+  @override
+  String get ramadanIftarTime => 'افطار';
+
+  @override
+  String get ramadanSetMealTimes => 'اوقات مقرر کریں';
+
+  @override
+  String get ramadanMealTimesSaved => 'اوقات محفوظ ہو گئے';
+
+  @override
+  String get ramadanExcuseTitle => 'نہ رکھنے کی وجہ';
+
+  @override
+  String get ramadanExcuseNone => 'کوئی وجہ نہیں';
+
+  @override
+  String get ramadanExcuseSickness => 'بیماری';
+
+  @override
+  String get ramadanExcuseTravel => 'سفر';
+
+  @override
+  String get ramadanExcuseShari => 'شرعی عذر';
+
+  @override
+  String get ramadanExcusePregnancy => 'حمل / رضاعت';
+
+  @override
+  String get ramadanExcuseOldAge => 'بڑھاپا';
+
+  @override
+  String get ramadanExcuseOther => 'دیگر';
+
+  @override
+  String get ramadanDaySaved => 'روزہ اپ ڈیٹ ہو گیا';
+
+  @override
+  String get ramadanDayNote => 'نوٹ (اختیاری)';
+
+  @override
+  String get ramadanStreak => 'روزوں کا تسلسل';
+
+  @override
+  String get ramadanYearlyTitle => 'سال بہ سال رمضان';
+
+  @override
+  String get ramadanFastPercent => 'روزے رکھے';
+
+  @override
+  String get ramadanStatusFasted => 'روزہ رکھا';
+
+  @override
+  String get ramadanStatusMissedExcused => 'چھوٹ گیا (عذر)';
+
+  @override
+  String get ramadanStatusMissedNoExcuse => 'چھوٹ گیا';
+
+  @override
+  String get ramadanStatusNotRecorded => 'درج نہیں';
+
+  @override
+  String get ramadanNoSeasonHint => 'اس سال کا رمضان سیزن ٹریک کرنے کے لیے تیار ہے۔';
+
+  @override
+  String get reportsTitle => 'رپورٹس و پرنٹ';
+
+  @override
+  String get reportsIntro => 'اپنی عبادت کی دو لسانی (اردو + انگریزی) پی ڈی ایف بنائیں اور پرنٹ یا شیئر کریں۔';
+
+  @override
+  String get reportsRangeTitle => 'رپورٹ کا دورانیہ';
+
+  @override
+  String get reportsModulesTitle => 'شامل کرنے والے ماڈیول';
+
+  @override
+  String get reportsIncludeAll => 'تمام ماڈیول';
+
+  @override
+  String get reportsGenerate => 'پی ڈی ایف بنائیں';
+
+  @override
+  String get reportsPreview => 'جائزہ اور پرنٹ';
+
+  @override
+  String get reportsSaved => 'رپورٹ تیار ہو گئی';
+
+  @override
+  String get reportsFailed => 'رپورٹ تیار نہیں ہو سکی';
+
+  @override
+  String get reportsBismillah => 'بسم اللہ الرحمٰن الرحیم';
+
+  @override
+  String get reportsTitleHeading => 'عبادت رپورٹ';
+
+  @override
+  String get reportsGeneratedOn => 'تیاری کی تاریخ';
+
+  @override
+  String get reportsPeriod => 'دورانیہ';
+
+  @override
+  String get reportsSummaryTable => 'خلاصہ';
+
+  @override
+  String get reportsModuleColumn => 'ماڈیول';
+
+  @override
+  String get reportsDoneColumn => 'مکمل';
+
+  @override
+  String get reportsTotalColumn => 'کل';
+
+  @override
+  String get reportsPercentColumn => 'فیصد';
+
+  @override
+  String get reportsNoDataForRange => 'منتخب دورانیے کے لیے کوئی اندراج نہیں۔';
+
+  @override
+  String get reportsDayRange => 'دن';
+
+  @override
+  String get reportsMonthRange => 'ماہ';
+
+  @override
+  String get reportsYearRange => 'سال';
+
+  @override
+  String get reportsSelectDate => 'تاریخ منتخب کریں';
+
+  @override
+  String get settingsBackupTitle => 'بیک اپ و بحالی';
+
+  @override
+  String get settingsBackupExport => 'بیک اپ برآمد کریں (JSON)';
+
+  @override
+  String get settingsBackupImport => 'بیک اپ سے بحال کریں';
+
+  @override
+  String get settingsBackupExported => 'بیک اپ برآمد ہو گیا';
+
+  @override
+  String get settingsBackupImported => 'بیک اپ بحال ہو گیا';
+
+  @override
+  String get settingsBackupImportConfirm => 'بحالی سے موجودہ تمام ڈیٹا تبدیل ہو جائے گا۔ جاری رکھیں؟';
+
+  @override
+  String get settingsBackupError => 'بیک اپ ناکام';
+
+  @override
+  String get settingsNotificationsTitle => 'اطلاعات';
+
+  @override
+  String get settingsNotificationsPrayer => 'نماز کے اوقات کی یاد دہانی';
+
+  @override
+  String get settingsNotificationsPrayerBody => 'ہر نماز کے وقت مطلع کریں';
+
+  @override
+  String get settingsNotificationsRoza => 'رمضان سحری و افطار کی یاد دہانی';
+
+  @override
+  String get settingsNotificationsRozaBody => 'رمضان میں یاد دہانی';
+
+  @override
+  String get settingsNotificationsTest => 'ٹیسٹ اطلاع بھیجیں';
+
+  @override
+  String get settingsNotificationsTestSent => 'ٹیسٹ اطلاع بھیج دی گئی';
+
+  @override
+  String get settingsNotificationsDenied => 'اطلاع کی اجازت مسترد ہو گئی';
+
+  @override
+  String get notifPrayerTitle => 'نماز کا وقت';
+
+  @override
+  String notifPrayerBody(String prayer) {
+    return '$prayer کا وقت ہو گیا ہے۔';
+  }
+
+  @override
+  String get notifRozaTitle => 'رمضان';
+
+  @override
+  String notifRozaBody(String event) {
+    return '$event کا وقت ہو گیا ہے۔';
+  }
+
+  @override
+  String get settingsPrayerMethod => 'نماز کے اوقات کا طریقہ';
+
+  @override
+  String get settingsPrayerMethodTitle => 'طریقہ';
+
+  @override
+  String get restoreConfirmTitle => 'بیک اپ بحال کریں؟';
+
+  @override
+  String get restoreWord => 'بحال کریں';
+
+  @override
+  String get exportWord => 'برآمد';
+
+  @override
+  String get okWord => 'ٹھیک ہے';
 }
